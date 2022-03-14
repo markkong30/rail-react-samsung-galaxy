@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Intro from './intro';
 import Table from './table';
-import Slider from '../slider';
+import Slider from './slider';
 import Pen from './pen';
 import Colors from './colors';
 import Display from './display';
