@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin-top: 70px;
+  width: 100%;
+  /* overflow-x: hidden; */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn-default {
+  padding: 0.8rem 1.4rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, black 50%, transparent 50%) right;
+  background-size: 200%;
+  transition: all 0.6s ease;
+}
+
+.btn-default:hover {
+  color: white;
+  background-position: left;
+}
+
+.btn-reverse {
+  padding: 0.8rem 1.4rem;
+  border: 1px solid white;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  background: linear-gradient(to left, black 50%, white 50%) right;
+  background-size: 200%;
+  transition: all 0.6s ease;
+  color: white;
+}
+
+.btn-reverse:hover {
+  color: black;
+  background-position: left;
+}
+
+.sub-heading {
+  letter-spacing: 2px;
+}
+
+.title {
+  margin: 2rem 0;
+  font-size: 3.2rem;
+  line-height: 1.2;
+}
+
+.description {
+  font-weight: lighter;
+  letter-spacing: 0.5px;
+}
+
+.sub {
+  font-size: 0.7rem;
+  color: rgba(200, 200, 200);
+  margin-top: 1.5rem;
+}
