@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import dropdown from '@images/dropdown.svg';
-import ReactPlayer from 'react-player';
 import video from '@images/turn-phone.mp4'
 import test from '@images/slow.mp4'
 
