@@ -9,6 +9,7 @@ import Buildings from './buildings';
 import Durability from './durability';
 import Video from './video';
 import styled from 'styled-components';
+import Zoom from './zoom';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -31,6 +32,7 @@ const Home = () => {
             <Buildings />
             <Durability />
             <Video />
+            <Zoom />
         </div>
     );
 };

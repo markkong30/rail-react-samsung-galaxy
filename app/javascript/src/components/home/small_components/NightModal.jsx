@@ -16,12 +16,14 @@ const NightModal = ({ setModalOpen }) => {
                     <p className="sub"><sup>*</sup>Video simulated for illustration purposes. Actual UI may be different.</p>
                 </div>
                 <div className="video-container">
-                    <video src={longVideo}></video>
+                    <video src={longVideo} muted autoPlay></video>
                 </div>
-                <div className="close" onClick={() => setModalOpen(false)}>
-                    <button className="btn-close">&times;</button>
+                <motion.div className="close" onClick={() => setModalOpen(false)}>
+                    <motion.div className="rotate" whileHover={{ rotate: '90deg' }}>
+                        <button className="btn-close">&times;</button>
+                    </motion.div>
 
-                </div>
+                </motion.div>
             </div>
 
         </StyledNightModal>
@@ -49,7 +51,7 @@ const StyledNightModal = styled(motion.div)`
 
     .modal-container {
         margin-top: 15vh;
-        background: white;
+        background: rgb(246, 246, 246);
         width: 100%;
         height: 100%;
         display: flex;
