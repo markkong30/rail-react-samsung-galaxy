@@ -11,20 +11,13 @@ import './index.css';
 const App = () => (
     <Router>
         <Nav />
-        <AnimatePresence
-            exitBeforeEnter
-            onExitComplete={() => window.scrollTo({
-                left: 0,
-                top: 0,
-            })}
-        >
-            <Switch location={location} key={location.pathname}>
-                <Route exact path="/">
-                    <Home />
-                </Route>
 
-            </Switch>
-        </AnimatePresence>
+        <Switch location={location} key={location.pathname}>
+            <Route exact path="/">
+                <Home />
+            </Route>
+
+        </Switch>
     </Router>
 
 )

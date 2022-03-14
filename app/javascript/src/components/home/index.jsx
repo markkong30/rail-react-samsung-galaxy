@@ -12,6 +12,7 @@ import styled from 'styled-components';
 import Zoom from './zoom';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import './index.css'
 
 
 
