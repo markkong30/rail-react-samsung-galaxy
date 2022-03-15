@@ -10,9 +10,10 @@ import Durability from './durability';
 import Video from './video';
 import styled from 'styled-components';
 import Zoom from './zoom';
+import Privacy from '../privacy';
+import Experience from './experience';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import './index.css'
 
 
 
@@ -34,6 +35,8 @@ const Home = () => {
             <Durability />
             <Video />
             <Zoom />
+            <Privacy />
+            <Experience />
         </div>
     );
 };

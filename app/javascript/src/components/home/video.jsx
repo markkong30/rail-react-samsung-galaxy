@@ -31,7 +31,7 @@ const Video = () => {
     return (
         <StyledVideo>
             <div className="video-container" ref={ref} >
-                <video src={nightVideo} muted ref={video}></video>
+                <video src={nightVideo} muted preload='true' ref={video}></video>
             </div>
             <h4 className="sub-heading">VIDEO AT NIGHT</h4>
             <div className="text-container">

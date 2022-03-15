@@ -81,7 +81,7 @@ const StyledDurability = styled.div`
     background: black;
     color: white;
     position: relative;
-    margin-top: 50vh;
+    margin-top: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

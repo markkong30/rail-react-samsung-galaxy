@@ -65,14 +65,15 @@ const StyledCarousel = styled.div`
     
     .images {
         display: flex;
-        gap: 1rem;
+        gap: 2rem;
+        justify-content: center;
         align-items: center;
         min-height: 80vh;
 
         .img-right {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 2rem;
         }
 
         img {
