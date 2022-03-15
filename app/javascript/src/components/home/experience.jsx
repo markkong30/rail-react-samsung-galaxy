@@ -9,10 +9,14 @@ import experience_3 from '@images/experience_3'
 const Experience = () => {
     gsap.registerPlugin(ScrollTrigger);
     const ref = useRef(null);
+    const card = useRef(null);
     const q = gsap.utils.selector(ref);
 
     useEffect(() => {
         const container = ref.current;
+        const lastCard = card.current.lastChild;
+
+        const coord = lastCard.getBoundingClientRect().x;
 
         const tl = gsap.timeline({
             scrollTrigger: ({
@@ -26,7 +30,7 @@ const Experience = () => {
             }),
         })
 
-        tl.to('.card', { x: '-40vw' })
+        tl.to('.card', { x: -coord / 2 })
 
 
     })
@@ -56,7 +60,7 @@ const Experience = () => {
                 <h4 className="sub-heading">GALAXY EXPERIENCE</h4>
                 <h3 className="title">Epic features that set the tone</h3>
             </div>
-            <div className="card-container">
+            <div className="card-container" ref={card}>
                 {cards.map(card => (
                     <div className="card" key={card.title}>
                         <div className="text">
@@ -95,7 +99,7 @@ const StyledExperience = styled.div`
         overflow: hidden;
 
         .card {
-            border-radius: 1rem;
+            border-radius: 2rem;
             background: #F4F5F7;
             display: flex;
             flex-direction: column;
@@ -104,6 +108,8 @@ const StyledExperience = styled.div`
             gap: 5rem;
             flex-shrink: 0;
             width: 30vw;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
 
             .text {
 

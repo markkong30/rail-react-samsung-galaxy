@@ -14,12 +14,12 @@ const Privacy = () => {
     useEffect(() => {
         const container = ref.current;
 
-        gsap.set(q('figure'), { x: 50 })
+        gsap.set(q('figure'), { x: 70 })
         gsap.to(q('figure'), {
             scrollTrigger: ({
                 trigger: container,
                 start: 'top center',
-                end: '+=500',
+                end: '+=600',
                 scrub: true,
                 markers: true,
                 id: 'security'

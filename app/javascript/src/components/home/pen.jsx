@@ -13,7 +13,7 @@ const Pen = () => {
     useEffect(() => {
         const container = ref.current;
 
-        gsap.to(q('img'), {
+        const tl = gsap.timeline({
             scrollTrigger: ({
                 trigger: container,
                 start: 'top center',
@@ -21,11 +21,11 @@ const Pen = () => {
                 scrub: true,
                 markers: true,
                 id: 'pen'
-            }),
-            y: 0,
-            ease: 'power2.out',
+            })
         })
 
+        tl.to(q('img'), { y: 0, ease: 'power2.out', duration: 1.5 });
+        tl.to('nav', { opacity: 1, duration: 1.5 }, '<');
     })
 
 

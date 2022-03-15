@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import dropdown from '@images/dropdown.svg';
-import video from '@images/turn-phone.mp4'
-import test from '@images/slow.mp4'
+import video from '@images/slow.mp4'
 
 
 const Slider = () => {
@@ -22,25 +21,8 @@ const Slider = () => {
                 start: '20%',
                 end: '200%',
                 markers: true,
-                // pin: true,
             })
         })
-
-        // const tlPin = gsap.timeline({
-        //     scrollTrigger: ({
-        //         trigger: container,
-        //         scrub: true,
-        //         start: "60%",
-        //         end: "100%",
-        //         markers: true,
-        //         id: 'pin',
-        //         pin: true,
-        //         onLeave: () => {
-        //             gsap.to('nav', { opacity: 1, duration: 2 })
-        //         },
-
-        //     })
-        // })
 
         gsap.to('nav', {
             scrollTrigger: ({
@@ -52,14 +34,12 @@ const Slider = () => {
 
             }),
             opacity: 0,
-            duration: 2,
+            duration: 1.5,
         })
 
-        tl.fromTo(q('video'), { currentTime: 0 }, { currentTime: 5, y: '100vh', onComplete: () => gsap.to('nav', { opacity: 1, duration: 2 }) });
-        // tlFadeOut.fromTo(q('video'), { opacity: 1 }, { opacity: 0 });
+        tl.fromTo(q('video'), { currentTime: 0 }, { currentTime: 5, y: '100vh' });
 
-
-    }, [])
+    })
 
 
     return (
@@ -77,7 +57,7 @@ const Slider = () => {
             </div>
             <div className="video-container">
 
-                <video src={test} muted preload='auto'></video>
+                <video src={video} muted preload='auto'></video>
             </div>
 
         </StyledThird>

@@ -12,6 +12,8 @@ import styled from 'styled-components';
 import Zoom from './zoom';
 import Privacy from '../privacy';
 import Experience from './experience';
+import Accesories from './accesories';
+import Links from './links';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -37,6 +39,8 @@ const Home = () => {
             <Zoom />
             <Privacy />
             <Experience />
+            <Accesories />
+            <Links />
         </div>
     );
 };

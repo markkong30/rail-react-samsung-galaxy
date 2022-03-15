@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
 import Home from './components/home';
 import Nav from './reusable/Nav';
 import './index.css';
+import Footer from './reusable/Footer';
 
 
 
@@ -18,6 +19,8 @@ const App = () => (
             </Route>
 
         </Switch>
+
+        <Footer />
     </Router>
 
 )

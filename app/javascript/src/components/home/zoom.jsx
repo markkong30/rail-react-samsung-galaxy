@@ -13,7 +13,6 @@ const Zoom = () => {
 
     useEffect(() => {
         const container = ref.current;
-
         const tlPin = gsap.timeline({
             scrollTrigger: ({
                 trigger: container,
@@ -29,10 +28,21 @@ const Zoom = () => {
         tlPin.fromTo(q('.mask'), { opacity: 1 }, { opacity: 0, duration: 2 });
         tlPin.to(q('.text-container'), { opacity: 0, duration: 2 }, '<');
         tlPin.to(q('.background'), { scale: 0.5, duration: 2 }, '<75%');
-        tlPin.to(q('.bottom'), { y: '-150', duration: 1 }, '<75%')
+        tlPin.to(q('.bottom'), { y: '-20vh', duration: 1 }, '<75%')
 
+        // const getDistance = () => {
+        //     const container = ref.current;
+        //     const innerHeight = window.innerHeight;
+        //     const imgHeight = container.lastChild.firstChild.offsetHeight;
+        //     const distance2 = innerHeight - imgHeight;
+        //     console.log(imgHeight)
+        //     // distance = distance2
+
+        // }
 
     })
+
+
 
     return (
         <StyledZoom>
