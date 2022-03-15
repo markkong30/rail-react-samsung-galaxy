@@ -6,7 +6,6 @@
 import Rails from "@rails/ujs";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
-import "framer-motion/dist/framer-motion";
 
 Rails.start();
 ActiveStorage.start();
