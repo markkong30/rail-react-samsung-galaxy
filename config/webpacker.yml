@@ -33,6 +33,7 @@ default: &default
     - .woff
     - .woff2
     - .mp4
+    - .gltf
 
   extensions:
     - .jsx
@@ -50,6 +51,7 @@ default: &default
     - .jpeg
     - .jpg
     - .mp4
+    - .gltf
 
 
 development:

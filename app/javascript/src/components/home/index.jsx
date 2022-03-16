@@ -14,6 +14,7 @@ import Privacy from '../privacy';
 import Experience from './experience';
 import Accesories from './accesories';
 import Links from './links';
+import Canvas from './small_components/Canvas';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -41,6 +42,7 @@ const Home = () => {
             <Experience />
             <Accesories />
             <Links />
+            <Canvas />
         </div>
     );
 };

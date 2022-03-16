@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion/dist/framer-motion';
 import longVideo from '@images/night-video-long'
 import { slideUp } from '../../../reusable/animation';
+import play from '@images/control_play'
+import pause from '@images/control_pause'
+import startover from '@images/control_startover'
 
 
 const NightModal = ({ setModalOpen }) => {
+    const [currentControl, setCurrentControl] = useState({ icon: pause, label: 'PAUSE' });
+    const video = useRef(null);
+
+    const videoControl = () => {
+        const { icon, label } = currentControl;
+
+        switch (icon) {
+            case pause:
+                video.current.pause();
+                return setCurrentControl({ icon: play, label: 'PLAY' });
+            case play:
+                video.current.play();
+                return setCurrentControl({ icon: pause, label: 'PAUSE' });
+            case startover:
+                video.current.play();
+                return setCurrentControl({ icon: pause, label: 'PAUSE' });
+            default:
+                return;
+        }
+    }
+
+
     return (
         <StyledNightModal variants={slideUp} initial="hidden" animate="show" exit="exit"  >
             <div className="mask"></div>
@@ -16,7 +41,13 @@ const NightModal = ({ setModalOpen }) => {
                     <p className="sub"><sup>*</sup>Video simulated for illustration purposes. Actual UI may be different.</p>
                 </div>
                 <div className="video-container">
-                    <video src={longVideo} muted autoPlay></video>
+                    <video src={longVideo} muted autoPlay
+                        onEnded={() => setCurrentControl({ icon: startover, label: "START OVER" })} ref={video}></video>
+                    <button className="btn btn-controls" onClick={videoControl}>
+                        <img src={currentControl.icon} alt="" />
+                        <label>{currentControl.label}</label>
+                    </button>
+
                 </div>
                 <motion.div className="close" onClick={() => setModalOpen(false)}>
                     <motion.div className="rotate" whileHover={{ rotate: '90deg' }}>
@@ -69,18 +100,50 @@ const StyledNightModal = styled(motion.div)`
             text-align: left;
 
             .title {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
 
             .sub-heading {
                 padding: 0;
+                font-size: 0.9rem;
+            }
+            
+            .sub {
+                color: rgb(40, 40, 40);
+                font-weight: lighter;
             }
         }
 
         .video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+
             video {
                 width: 30vw;
                 height: auto;
+            }
+
+            .btn-controls {
+                display: flex;
+                align-items: flex-start;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                label {
+                    cursor: pointer;
+                    font-size: 0.9rem;
+                    font-weight: lighter;
+                    letter-spacing: 1.5px;
+                    padding-bottom: 0.2rem;
+                    border-bottom-style: solid;
+                    border-bottom-width: 1px;       
+                    margin-left: 0.2rem;         
+                }
             }
         }
 
