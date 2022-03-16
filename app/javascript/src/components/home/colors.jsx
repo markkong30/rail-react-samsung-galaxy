@@ -2,10 +2,21 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion, AnimatePresence } from 'framer-motion/dist/framer-motion';
 import Carousel from './small_components/Carousel';
+import ModelModal from './small_components/ModelModal';
 
 const Colors = () => {
     const [currentColor, setCurrentColor] = useState('burgundy');
+    const [modalOpen, setModalOpen] = useState(false);
+
+    useEffect(() => {
+        if (modalOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }, [modalOpen])
 
     const colors = [
         { name: 'Burgundy', id: '#644D58', imgName: 'burgundy' },
@@ -19,7 +30,7 @@ const Colors = () => {
     }
 
     return (
-        <StyledFifth>
+        <StyledColors>
             <div className="text-container">
                 <div className="text-left">
                     <h4 className="sub-heading">COLORS</h4>
@@ -29,7 +40,7 @@ const Colors = () => {
                     <p className="description">
                         Be a trendsetter and embrace the bold tones of Burgundy or Green. Or stand out with the subtlety of Phantom White or maybe Phantom Black. These sophisticated and timeless colors amplify the sleek design.
                     </p>
-                    <button className='btn btn-default'>SEE IN 360°</button>
+                    <button className='btn btn-default' onClick={() => setModalOpen(true)}>SEE IN 360°</button>
                     <div className="colors-palette">
                         {colors.map(color => (
                             <StyledColor key={color.name} color={color.id} className={currentColor == color.imgName ? 'selected' : ''}>
@@ -45,11 +56,16 @@ const Colors = () => {
             <div className="carousel">
                 <Carousel currentColor={currentColor} />
             </div>
-        </StyledFifth>
+            <AnimatePresence>
+                {modalOpen &&
+                    <ModelModal setModalOpen={setModalOpen} />
+                }
+            </AnimatePresence>
+        </StyledColors>
     );
 };
 
-const StyledFifth = styled.div`
+const StyledColors = styled.div`
     min-height: 100vh;
     padding: 10% 15%;
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import dropdown from '@images/dropdown.svg';
-import video from '@images/slow.mp4'
+import video from '@images/turn-phone.mp4'
 
 
 const Slider = () => {

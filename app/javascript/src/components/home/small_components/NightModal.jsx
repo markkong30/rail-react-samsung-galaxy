@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import { motion, AnimatePresence } from 'framer-motion/dist/framer-motion';
+import { motion } from 'framer-motion/dist/framer-motion';
 import longVideo from '@images/night-video-long'
 import { slideUp } from '../../../reusable/animation';
 import play from '@images/control_play'

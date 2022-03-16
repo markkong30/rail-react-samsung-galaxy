@@ -4,7 +4,6 @@ import { useInView } from 'react-intersection-observer';
 import nightVideo from '@images/night-video';
 import NightModal from './small_components/NightModal';
 import { motion, AnimatePresence } from 'framer-motion/dist/framer-motion';
-import { element } from 'prop-types';
 
 const Video = () => {
     const [modalOpen, setModalOpen] = useState(false);

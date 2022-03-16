@@ -4,15 +4,15 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Phone from './Galaxy-phone';
 
-const GalaxyModel = () => {
+const PhoneCanvas = () => {
     return (
         <StyledWrapper>
 
             <Canvas clasName="canvas">
-                <OrbitControls enableZoom={false} />
-                <ambientLight intensity={1} />
-                <directionalLight position={[2, 10, 1]} intensity={2} />
-                <pointLight position={[0, 1, -10]} />
+                <OrbitControls enableZoom={false} enablePan={false} />
+                <ambientLight intensity={1.5} />
+                <directionalLight position={[2, 50, 0]} intensity={2} />
+                <pointLight position={[0, 0, -10]} intensity={0.5} />
                 <Suspense fallback={null}>
                     <Phone />
                 </Suspense>
@@ -24,8 +24,11 @@ const GalaxyModel = () => {
 
 const StyledWrapper = styled.div`
     canvas {
-        height: 100vh;
+        width: 50vw;
+        height: 85vh;
+        overflow: visible;
+        cursor: pointer;
     }
 `
 
-export default GalaxyModel;
+export default PhoneCanvas;
