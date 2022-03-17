@@ -86,8 +86,6 @@ const StyledDurability = styled.div`
     justify-content: center;
     align-items: center;
     padding: 8% 18%;
-    z-index: -10;
-    
     
 
     .adapter-container {

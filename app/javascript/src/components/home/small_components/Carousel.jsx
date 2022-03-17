@@ -61,23 +61,35 @@ const Carousel = ({ currentColor }) => {
 };
 
 const StyledCarousel = styled.div`
-    margin-top: 3rem;
+    margin-top: 5rem;
     
     .images {
         display: flex;
         gap: 2rem;
         justify-content: center;
-        align-items: center;
         min-height: 80vh;
 
+        .img-left {
+            display: flex;
+            flex-basis: 50%;
+            flex: 1;
+          
+        }
         .img-right {
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            flex-basis: 50%;
+            img {
+                flex: 1;
+
+            }
+
         }
 
         img {
             display: block;
+
         }
     }
 `
