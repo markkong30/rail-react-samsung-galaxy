@@ -13,11 +13,6 @@ const Intro = () => {
     useEffect(() => {
         const tl = gsap.timeline({ default: { duration: 0.75, ease: "power3.out" } });
 
-        // const path = logo.current.querySelector('path');
-        // const pathLength = path.getTotalLength();
-        // console.log(pathLength)
-        // gsap.fromTo(path, { strokeDashoffset: pathLength, strokeDasharray: pathLength }, { strokeDashoffset: 0, duration: 2, });
-        // tl.set('nav', { opacity: 0, })
         tl.set(q('.letter'), { display: 'inline-block', color: 'white' })
         tl.fromTo(q('.letter'), { y: "100%" }, { y: 0, delay: 0.5, stagger: 0.1, ease: "back.out(3)", color: 'black' }, '>');
         tl.fromTo(q('.btn-default'), { opacity: 0 }, { opacity: 1 }, '<50%');

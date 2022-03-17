@@ -55,11 +55,11 @@ const Buildings = () => {
                 scrub: true,
                 markers: true,
                 id: 'dura',
-                // pin: true,
+                pin: true,
                 endTrigger: q('.texts.last'),
                 onEnter: () => {
                     // gsap.to(q('.background'), { opacity: 0 });
-                    gsap.fromTo(container2, { opacity: 0 }, { opacity: 1, ease: 'none', duration: 0.1 });
+                    gsap.fromTo(container2, { opacity: 0 }, { opacity: 1, ease: 'none' });
                 },
                 onLeaveBack: () => {
                     // gsap.to(q('.background'), { opacity: 1 })
@@ -76,36 +76,21 @@ const Buildings = () => {
                 end: '100%',
                 scrub: true,
                 markers: true,
-                // pin: true,
-                id: 'text',
+                id: 'scale',
                 endTrigger: container2,
             }),
         })
 
-        tl3.to(q2('.background-2'), { scale: 0.5, duration: 2 });
+        tl3.to(q2('.background-2'), { scale: 0.5, duration: 2, y: 650 });
         tl3.fromTo(q2('.frame'), { scale: 1.1 }, { scale: 1, display: 'block' }, '<');
         tl3.fromTo(q2('.building'), { filter: 'hue-rotate(30deg)' }, { filter: 'hue-rotate(0deg)' }, '<');
-
-
-        const tl4 = gsap.timeline({
-            scrollTrigger: ({
-                trigger: container2,
-                start: 'top top',
-                end: '75%',
-                scrub: true,
-                markers: true,
-                pin: true,
-                id: 'scale',
-                // endTrigger: container2,
-            }),
-        })
 
 
     })
 
 
     return (
-        <StyledBuilding ref={ref}>
+        <StyledSeventh ref={ref}>
             <div className="background"></div>
             <div className="text-container">
                 <div className="text-container-left">
@@ -156,17 +141,16 @@ const Buildings = () => {
                 </div> */}
             </StyledDurability>
 
-        </StyledBuilding>
+        </StyledSeventh>
     );
 };
 
-const StyledBuilding = styled.div`
-    min-height: 400vh;
+const StyledSeventh = styled.div`
+    min-height: 350vh;
     color: white;
     position: relative;
     padding: 10% 15%;
     z-index: 0;
-    overflow: hidden;
     
     .background {
         position: absolute;
@@ -181,12 +165,12 @@ const StyledBuilding = styled.div`
         background-attachment: fixed;
         z-index: -1;
         overflow: hidden;
+        /* opacity: 0.8; */
 
     }
 
      .text-container {
-         /* transform: translateY(100vh); */
-         margin-top: 100vh;
+         transform: translateY(100vh);
          color: white;
          z-index: 2;
          position: relative;
@@ -225,7 +209,7 @@ const StyledBuilding = styled.div`
 `
 
 const StyledDurability = styled.div`
-    min-height: 250vh;
+    min-height: 200vh;
     background: black;
     color: white;
     position: absolute;
@@ -233,15 +217,13 @@ const StyledDurability = styled.div`
     bottom: 0;
     right: 0;
     width: 100%;
-    opacity: 0; 
-    z-index: 1;
-    /* overflow: hidden;
+    opacity: 0;
+    overflow: hidden;
 
     /* transform: translateY(100vh); */
     
     .background-2 {
         position: relative;
-        width: 100%;
 
         .building {
             position: absolute;
@@ -272,7 +254,7 @@ const StyledDurability = styled.div`
 
     }
 
-    /* .adapter-container {
+    .adapter-container {
         position: relative;
         display: flex;
         gap: 2rem;
@@ -291,10 +273,10 @@ const StyledDurability = styled.div`
                 height: auto;
                 object-fit: cover;
                 /* object-position: center; */
-            /* } */
-        /* } */
+            }
+        }
 
-        /* .grey {
+        .grey {
             color: grey;
             font-size: 0.8rem;
         }
@@ -308,7 +290,7 @@ const StyledDurability = styled.div`
             color: rgb(220, 220, 220);
         }
         
-    }  */
+    }
 `
 
 export default Buildings;

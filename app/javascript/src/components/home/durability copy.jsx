@@ -81,24 +81,23 @@ const StyledDurability = styled.div`
     background: black;
     color: white;
     position: relative;
+    margin-top: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 8% 18%;
-    z-index: -10;
+
     
     
 
     .adapter-container {
         /* position: relative; */
-
         display: flex;
         gap: 2rem;
         justify-content: center;
         align-items: center;
-        /* margin-top: 30vh; */
-        
+        /* margin-top: 1100px; */
 
         .image {
             padding: 0 2rem;

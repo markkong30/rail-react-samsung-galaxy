@@ -17,7 +17,7 @@ const Experience = () => {
         const lastCard = card.current.lastChild;
 
         const coord = lastCard.getBoundingClientRect().x;
-
+        console.log(coord)
         const tl = gsap.timeline({
             scrollTrigger: ({
                 trigger: q('.card-container'),
