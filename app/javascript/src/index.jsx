@@ -1,32 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
-import Home from './components/home';
-import Nav from './reusable/Nav';
+import { BrowserRouter } from 'react-router-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import { rootReducer } from './redux/reducers/rootReducer';
 import './index.css';
-import Footer from './reusable/Footer';
+import App from './App';
 
 
 
-const App = () => (
-    <Router>
-        <Nav />
+const Index = () => {
+    const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    const store = createStore(
+        rootReducer,
+        composeEnchancer(applyMiddleware(thunk))
+    )
 
-        <Switch location={location} key={location.pathname}>
-            <Route exact path="/">
-                <Home />
-            </Route>
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </Provider>
 
-        </Switch>
+    )
 
-        <Footer />
-    </Router>
+}
 
-)
+
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
-        <App />,
+        <Index />,
         document.body.appendChild(document.createElement('div')),
     )
 })

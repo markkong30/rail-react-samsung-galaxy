@@ -3,4 +3,5 @@ class StaticPagesController < ApplicationController
     render 'index'
   end
 
+
 end

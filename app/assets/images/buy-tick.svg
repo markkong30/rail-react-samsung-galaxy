@@ -1,0 +1,24 @@
+<svg id="_01_in_stock" data-name="01_in stock" xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-1 {
+        fill-opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #a7d36a;
+      }
+
+      .cls-3 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="120" height="120"/>
+  <circle id="BG" class="cls-2" cx="60" cy="60" r="55"/>
+  <path id="Rectangle_3_copy" data-name="Rectangle 3 copy" class="cls-3" d="M88.27,46.783L60.062,74.991l0.08,0.08-7.071,7.071-0.08-.08-0.077.077-7.071-7.071,0.077-.077L31.858,60.929l7.071-7.071L52.991,67.92,81.2,39.712Z"/>
+</svg>

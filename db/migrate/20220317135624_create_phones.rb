@@ -4,6 +4,11 @@ class CreatePhones < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :color
       t.string :image
+      t.string :size
+      t.integer :stock
+      t.integer :storage
+      t.integer :price
+
 
       t.timestamps
     end

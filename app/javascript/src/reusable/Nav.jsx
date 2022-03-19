@@ -19,7 +19,9 @@ const Nav = () => {
                     <li className="nav-items">Specs</li>
                     <li className="nav-items">Explore</li>
                 </ul>
-                <button className="btn btn-buy">Buy now</button>
+                <Link to="/buy">
+                    <button className="btn btn-buy">Buy now</button>
+                </Link>
             </div>
 
         </Navbar>

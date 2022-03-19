@@ -25,6 +25,7 @@ const Home = () => {
         ScrollTrigger.refresh();
     })
 
+
     return (
         <div>
             <Intro />
