@@ -4,14 +4,9 @@ import { useSelector } from 'react-redux';
 import Palette from '../../reusable/Palette';
 
 
-const Color = () => {
-    const { filteredPhones, buyImgs } = useSelector(state => state.phones);
-    const [currentColor, setCurrentColor] = useState(null);
+const Color = ({ currentColor, setCurrentColor, children }) => {
+    const { buyImgs } = useSelector(state => state.phones);
 
-    useEffect(() => {
-        setCurrentColor(filteredPhones[0])
-
-    }, [filteredPhones])
 
     return (
 
@@ -21,8 +16,8 @@ const Color = () => {
                 <img src={currentColor && currentColor.image.buy} alt="" />
             </div>
             <div className="palette">
-
                 <Palette currentColor={currentColor} setCurrentColor={setCurrentColor} />
+                {children}
             </div>
         </StyledColor>
 
@@ -52,6 +47,9 @@ const StyledColor = styled.div`
     .palette {
         padding: 3rem;
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-basis: 50%;
     }
 
 `

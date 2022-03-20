@@ -20,7 +20,7 @@ const Zoom = () => {
                 end: '75%',
                 scrub: true,
                 pin: true,
-                markers: true,
+                // markers: true,
                 id: 'pin'
             })
         })

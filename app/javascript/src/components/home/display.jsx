@@ -20,7 +20,7 @@ const Sixth = () => {
                 start: '0%',
                 end: '30%',
                 scrub: true,
-                markers: true,
+                // markers: true,
                 id: 'display'
             }),
             opacity: 1,

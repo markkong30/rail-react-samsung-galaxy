@@ -30,7 +30,7 @@ const Table = () => {
                 scrub: true,
                 start: "10%",
                 end: "80%",
-                markers: true,
+                // markers: true,
             },
         });
 
@@ -49,7 +49,7 @@ const Table = () => {
                 scrub: true,
                 start: "0%",
                 end: "100%",
-                markers: true,
+                // markers: true,
                 pin: true,
                 // pinSpacing: false,
 

@@ -6,6 +6,7 @@ import { fetchPhones } from './redux/actions/fetchPhones';
 import { fetchSpecs } from './redux/actions/fetchSpecs';
 import Home from './components/home';
 import Buy from './components/buy';
+import Contact from './components/buy/contact';
 import Nav from './reusable/Nav';
 import Footer from './reusable/Footer';
 
@@ -18,17 +19,24 @@ const App = () => {
         dispatch(fetchSpecs())
     }, [dispatch])
 
+    const scrollTop = () => {
+        window.scrollTo({
+            left: 0,
+            top: 0,
+        })
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            scrollTop();
+        }, 200)
+    }, [])
+
     return (
         <div className='app'>
 
             <Nav />
-            <AnimatePresence
-                exitBeforeEnter
-                onExitComplete={() => window.scrollTo({
-                    left: 0,
-                    top: 0,
-                })}
-            >
+            <AnimatePresence exitBeforeEnter >
                 <Switch location={location} key={location.pathname}>
                     <Route exact path="/">
                         <Home />
@@ -36,7 +44,9 @@ const App = () => {
                     <Route exact path="/buy">
                         <Buy />
                     </Route>
-
+                    <Route exact path="/buy/user">
+                        <Contact />
+                    </Route>
 
                 </Switch>
             </AnimatePresence>

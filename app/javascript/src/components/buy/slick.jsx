@@ -36,14 +36,14 @@ const Slick = () => {
 
 const StyledSlick = styled.div`
     width: 100%;
-    overflow: hidden;
+    position: relative;
+    z-index: 1;
     
     img {
         display: block;
         width: 100%;
         height: 100%;
         pointer-events: none;
-       
     }
 `
 

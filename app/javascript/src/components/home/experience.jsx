@@ -24,7 +24,7 @@ const Experience = () => {
                 start: 'center center',
                 end: '100%',
                 scrub: true,
-                markers: true,
+                // markers: true,
                 pin: true,
                 id: 'experience'
             }),

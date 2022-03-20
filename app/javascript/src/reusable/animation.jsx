@@ -19,4 +19,12 @@ const slideUp = {
     exit: { y: '100%', transition: { duration: 0.75 } }
 }
 
-export { arrowRotate, fadeIn, waterTranslate, slideUp };
+const pageTransition = {
+    hidden: { opacity: 0, y: '100vh' },
+    show: { opacity: 1, y: 0, transition: { duration: 1 } },
+    exit: { opacity: 1, y: '100vh', transition: { duration: 1 } },
+
+}
+
+
+export { arrowRotate, fadeIn, waterTranslate, slideUp, pageTransition };

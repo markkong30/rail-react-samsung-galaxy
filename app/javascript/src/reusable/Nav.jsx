@@ -41,6 +41,7 @@ const Navbar = styled(motion.nav)`
     left: 0;
     width: 100%;
     z-index: 2;
+    box-shadow: 0 0 15px rgba(40, 40, 40, 0.1);
 
     .logo img {
         transform: scale(4.5) translateY(5%);

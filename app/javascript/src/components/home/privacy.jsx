@@ -21,7 +21,7 @@ const Privacy = () => {
                 start: 'top center',
                 end: '+=600',
                 scrub: true,
-                markers: true,
+                // markers: true,
                 id: 'security'
             }),
             x: 0,

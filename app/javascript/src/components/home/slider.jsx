@@ -20,7 +20,7 @@ const Slider = () => {
                 scrub: true,
                 start: '20%',
                 end: '200%',
-                markers: true,
+                // markers: true,
             })
         })
 
@@ -30,7 +30,7 @@ const Slider = () => {
                 scrub: true,
                 start: '40%',
                 end: "+=300",
-                markers: true,
+                // markers: true,
 
             }),
             opacity: 0,

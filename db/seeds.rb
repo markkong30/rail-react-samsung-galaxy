@@ -33,7 +33,7 @@ phones = Phone.create([
             buy: 'https://rails-react-samsung.s3.amazonaws.com/buy/burgundy-buy.jpg'
         },
         size: 'medium',
-        stock: 20,
+        stock: 5,
         storage: 256,
         price: 1249
     }, {
@@ -47,7 +47,7 @@ phones = Phone.create([
             buy: 'https://rails-react-samsung.s3.amazonaws.com/buy/burgundy-buy.jpg'
         },
         size: 'large',
-        stock: 20,
+        stock: 10,
         storage: 512,
         price: 1329
     }, {
@@ -61,7 +61,7 @@ phones = Phone.create([
             buy: 'https://rails-react-samsung.s3.amazonaws.com/buy/green-buy.jpg'
         },
         size: 'small',
-        stock: 20,
+        stock: 0,
         storage: 128,
         price: 1149
     }, {
@@ -89,7 +89,7 @@ phones = Phone.create([
             buy: 'https://rails-react-samsung.s3.amazonaws.com/buy/green-buy.jpg'
         },
         size: 'large',
-        stock: 20,
+        stock: 15,
         storage: 512,
         price: 1329
     }, {
@@ -103,7 +103,7 @@ phones = Phone.create([
             buy: 'https://rails-react-samsung.s3.amazonaws.com/buy/white-buy.jpg'
         },
         size: 'small',
-        stock: 20,
+        stock: 0,
         storage: 128,
         price: 1149
     }, {
@@ -131,7 +131,7 @@ phones = Phone.create([
             buy: 'https://rails-react-samsung.s3.amazonaws.com/buy/white-buy.jpg'
         },
         size: 'large',
-        stock: 20,
+        stock: 10,
         storage: 512,
         price: 1329
     }, {
@@ -159,7 +159,7 @@ phones = Phone.create([
             buy: 'https://rails-react-samsung.s3.amazonaws.com/buy/black-buy.jpg'
         },
         size: 'medium',
-        stock: 20,
+        stock: 0,
         storage: 256,
         price: 1249
     }, {
@@ -173,7 +173,7 @@ phones = Phone.create([
             buy: 'https://rails-react-samsung.s3.amazonaws.com/buy/black-buy.jpg'
         },
         size: 'large',
-        stock: 20,
+        stock: 5,
         storage: 512,
         price: 1329
     }

@@ -8,12 +8,13 @@ import Display from './display';
 import Buildings from './buildings';
 import Durability from './durability';
 import Video from './video';
-import styled from 'styled-components';
 import Zoom from './zoom';
-import Privacy from '../privacy';
+import Privacy from './privacy';
 import Experience from './experience';
 import Accesories from './accesories';
 import Links from './links';
+import { motion } from 'framer-motion/dist/framer-motion';
+import { pageTransition } from '../../reusable/animation';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -27,7 +28,7 @@ const Home = () => {
 
 
     return (
-        <div>
+        <motion.div variants={pageTransition} initial="hidden" animate="show" exit="exit">
             <Intro />
             <Table />
             <Slider />
@@ -42,7 +43,7 @@ const Home = () => {
             <Experience />
             <Accesories />
             <Links />
-        </div>
+        </motion.div>
     );
 };
 

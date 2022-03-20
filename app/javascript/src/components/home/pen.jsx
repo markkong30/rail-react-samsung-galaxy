@@ -19,7 +19,7 @@ const Pen = () => {
                 start: 'top center',
                 end: '+=500',
                 scrub: true,
-                markers: true,
+                // markers: true,
                 id: 'pen'
             })
         })
