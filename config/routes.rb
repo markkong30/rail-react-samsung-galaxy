@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   root to: 'static_pages#index'
-  get '/' => 'static_pages#index'
-  get '/buy' => 'static_pages#index'
-  get '/buy/user' => 'static_pages#index'
 
   namespace :api do
 
@@ -19,5 +16,7 @@ Rails.application.routes.draw do
 
 
   end
+
+  get '*path' => 'static_pages#index'
 
 end

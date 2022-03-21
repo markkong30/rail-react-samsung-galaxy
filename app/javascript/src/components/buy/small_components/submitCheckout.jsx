@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion/dist/framer-motion';
-import { Link } from 'react-router-dom';
 
-const Checkout = ({ currentStock }) => {
+const SubmitCheckout = ({ currentStock, isValid, proceedCheckout }) => {
 
     return (
         <StyledChekcout>
@@ -12,13 +11,10 @@ const Checkout = ({ currentStock }) => {
                 <h4>Order Summary</h4>
                 <li>Galaxy S22 Ultra 5G, <span>{currentStock.title}, {currentStock.storage}GB</span></li>
             </div>
-            {currentStock.stock > 0 ?
-                <Link to={`/buy/checkout/${currentStock.title}/${currentStock.storage}`}>
-                    <motion.button whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }} className="btn btn-checkout">Checkout</motion.button>
-                </Link>
-
+            {isValid ?
+                <motion.button whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }} className="btn btn-checkout" onClick={proceedCheckout}>Make Payment</motion.button>
                 :
-                <button className="btn-out-of-stock">Out of Stock</button>
+                <button className="btn-out-of-stock">Make Payment</button>
             }
 
         </StyledChekcout>
@@ -75,4 +71,4 @@ const StyledChekcout = styled.div`
     }
 `
 
-export default Checkout;
+export default SubmitCheckout;

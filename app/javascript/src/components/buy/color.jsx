@@ -28,6 +28,7 @@ const StyledColor = styled.div`
     display: flex;
     padding: 2rem 0;
     border-top: 1px solid #EEEEEE;
+    flex-wrap: wrap;
 
     .buy-title {
         flex-basis: 20%;
@@ -36,11 +37,12 @@ const StyledColor = styled.div`
     .carousel {
         padding-right: 2rem;
         border-right: 1px solid #EEEEEE;
-
+        flex-basis: 30%;
+        /* flex-shrink: 0; */
         
         img {
             width: 100%;
-            height: 100%;
+            /* height: 100%; */
         }
     }
 

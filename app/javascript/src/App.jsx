@@ -26,17 +26,19 @@ const App = () => {
         })
     }
 
-    useEffect(() => {
-        setTimeout(() => {
-            scrollTop();
-        }, 200)
-    }, [])
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         scrollTop();
+    //     }, 200)
+    // }, [location])
 
     return (
         <div className='app'>
 
             <Nav />
-            <AnimatePresence exitBeforeEnter >
+            <AnimatePresence exitBeforeEnter
+                onExitComplete={scrollTop}
+            >
                 <Switch location={location} key={location.pathname}>
                     <Route exact path="/">
                         <Home />
@@ -44,7 +46,7 @@ const App = () => {
                     <Route exact path="/buy">
                         <Buy />
                     </Route>
-                    <Route exact path="/buy/user">
+                    <Route path="/buy/checkout/:title/:storage">
                         <Contact />
                     </Route>
 
