@@ -14,7 +14,7 @@ import Experience from './experience';
 import Accesories from './accesories';
 import Links from './links';
 import { motion } from 'framer-motion/dist/framer-motion';
-import { pageTransition } from '../../reusable/animation';
+import { homeTransition } from '../../reusable/animation';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -28,7 +28,7 @@ const Home = () => {
 
 
     return (
-        <motion.div variants={pageTransition} initial="hidden" animate="show" exit="exit">
+        <motion.div variants={homeTransition} initial="hidden" animate="show" exit="exit">
             <Intro />
             <Table />
             <Slider />

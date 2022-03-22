@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion/dist/framer-motion';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { fetchCurrentStock } from '../../../redux/actions/fetchCurrentStock';
 
-const SubmitCheckout = ({ currentStock, isValid, proceedCheckout }) => {
+const SubmitCheckout = ({ proceedCheckout, isValid }) => {
+    const dispatch = useDispatch();
+    const { title, storage } = useParams();
+    useEffect(() => {
+        dispatch(fetchCurrentStock(title, storage))
+    }, [dispatch])
+    const { currentStock } = useSelector(state => state.buy);
 
     return (
         <StyledChekcout>
-            <h3>Total <span>£{currentStock.price}.00</span></h3>
-            <div className="summary">
-                <h4>Order Summary</h4>
-                <li>Galaxy S22 Ultra 5G, <span>{currentStock.title}, {currentStock.storage}GB</span></li>
-            </div>
-            {isValid ?
-                <motion.button whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }} className="btn btn-checkout" onClick={proceedCheckout}>Make Payment</motion.button>
-                :
-                <button className="btn-out-of-stock">Make Payment</button>
+            {currentStock &&
+                <>
+
+                    <h3>Total <span>£{currentStock.price}.00</span></h3>
+                    <div className="summary">
+                        <h4>Order Summary</h4>
+                        <li>Galaxy S22 Ultra 5G, <span>{currentStock.title}, {currentStock.storage}GB</span></li>
+                    </div>
+                    {isValid ?
+                        <motion.button whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }} className="btn btn-checkout" onClick={proceedCheckout}>Make Payment</motion.button>
+                        :
+                        <button className="btn-out-of-stock">Make Payment</button>
+                    }
+                </>
             }
+
 
         </StyledChekcout>
     );

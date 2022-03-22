@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
     #sessions
     get '/authenticated' => 'sessions#authenticated'
+    delete '/logout' => 'sessions#destroy'
 
     #phones
     get '/phones/stock' => 'phones#stock'
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
     resources :phones, only: [:index]
     resources :specs, only: [:index]
     resources :users, only: [:create]
-    resources :sessions, only: [:create, :destroy]
+    resources :sessions, only: [:create]
 
 
   end

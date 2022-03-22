@@ -5,7 +5,7 @@ module Api
 
       if @user and BCrypt::Password.new(@user.password) == params[:user][:password]
         session = @user.sessions.create
-        cookies.permanent.signed[:airbnb_session_token] = {
+        cookies.permanent.signed[:samsung_session_token] = {
           value: session.token,
           httponly: true
         }
@@ -17,7 +17,7 @@ module Api
     end
 
     def authenticated
-      token = cookies.signed[:airbnb_session_token]
+      token = cookies.signed[:samsung_session_token]
       session = Session.find_by(token: token)
 
       if session
@@ -29,7 +29,7 @@ module Api
     end
 
     def destroy
-      token = cookies.signed[:airbnb_session_token]
+      token = cookies.signed[:samsung_session_token]
       session = Session.find_by(token: token)
 
       if session and session.destroy

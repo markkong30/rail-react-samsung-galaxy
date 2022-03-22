@@ -4,11 +4,13 @@ import { AnimatePresence } from 'framer-motion/dist/framer-motion';
 import { useDispatch } from 'react-redux';
 import { fetchPhones } from './redux/actions/fetchPhones';
 import { fetchSpecs } from './redux/actions/fetchSpecs';
+import { authenticate } from './redux/actions/authenticate';
 import Home from './components/home';
 import Buy from './components/buy';
 import Contact from './components/buy/contact';
 import Nav from './reusable/Nav';
 import Footer from './reusable/Footer';
+import User from './components/user/user';
 
 const App = () => {
     const location = useLocation();
@@ -16,8 +18,11 @@ const App = () => {
 
     useEffect(() => {
         dispatch(fetchPhones());
-        dispatch(fetchSpecs())
+        dispatch(fetchSpecs());
+        dispatch(authenticate());
     }, [dispatch])
+
+
 
     const scrollTop = () => {
         window.scrollTo({
@@ -25,12 +30,6 @@ const App = () => {
             top: 0,
         })
     }
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         scrollTop();
-    //     }, 200)
-    // }, [location])
 
     return (
         <div className='app'>
@@ -48,6 +47,9 @@ const App = () => {
                     </Route>
                     <Route path="/buy/checkout/:title/:storage">
                         <Contact />
+                    </Route>
+                    <Route path="/user/:status">
+                        <User />
                     </Route>
 
                 </Switch>

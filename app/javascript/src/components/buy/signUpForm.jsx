@@ -1,18 +1,47 @@
 import React, { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
 import { safeCredentials, handleErrors } from '@src/reusable/fetchHelper';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { fetchCurrentStock } from '../../../redux/actions/fetchCurrentStock';
 import { gsap } from "gsap";
-import { validateEmail, validateUsername, validateMobile, validatePassword, validateAddress } from '../../../reusable/validation';
-import SubmitCheckout from './submitCheckout';
+import { validateEmail, validateUsername, validateMobile, validatePassword, validateAddress } from '../../reusable/validation';
+import SubmitCheckout from './small_components/submitCheckout';
 
-const SignUp = () => {
+const SignUpForm = ({ userDetail }) => {
     const fields = ['Username', 'Email', 'Password', 'Address', 'Mobile Number'];
     const form = useRef(null);
     const q = gsap.utils.selector(form);
+
+    useEffect(() => {
+        if (userDetail) {
+            // setInputValues({
+            //     username: userDetail.username,
+            //     email: userDetail.email,
+            //     password: '*******',
+            //     address: userDetail.address,
+            //     phone_number: userDetail.phone_number,
+
+            // })
+            gsap.to(q(`.placeholder`), { y: -25, scale: 0.7, duration: 0.5, transformOrigin: "top left", ease: "power2.out" }, "<15%");
+            setIsValid(true);
+
+        }
+
+    }, [userDetail])
+
+    const getReadValue = (name) => {
+        switch (name) {
+            case 'Username':
+                return userDetail.username;
+            case 'Email':
+                return userDetail.email;
+            case 'Password':
+                return '********';
+            case 'Address':
+                return userDetail.address;
+            case 'Mobile Number':
+                return userDetail.phone_number;
+
+        }
+    }
 
     const [isValid, setIsValid] = useState(false);
     const [inputValues, setInputValues] = useState({
@@ -22,13 +51,6 @@ const SignUp = () => {
         address: '',
         phone_number: '',
     })
-    const dispatch = useDispatch();
-    const { title, storage } = useParams();
-    useEffect(() => {
-        dispatch(fetchCurrentStock(title, storage))
-    }, [dispatch])
-    const { currentStock, isLoading } = useSelector(state => state.buy);
-
 
     const inputFocus = (e) => {
         const tl = gsap.timeline({ defaults: { duration: 1, ease: 'power2.out' } });
@@ -54,7 +76,6 @@ const SignUp = () => {
 
     const inputValidate = e => {
         const { value, name } = e.target;
-        console.log(name)
         if (name == 'Mobile') {
             setInputValues({ ...inputValues, phone_number: value });
         } else {
@@ -127,14 +148,18 @@ const SignUp = () => {
                     return setIsValid(false)
                 }
             }
-            console.log(inputValues)
             return setIsValid(true);
         }, 750)
 
     }
 
     const proceedCheckout = () => {
-        fetch('/api/users', safeCredentials({
+        if (userDetail) {
+
+        }
+
+
+        return fetch('/api/users', safeCredentials({
             method: 'POST',
             body: JSON.stringify({
                 user: inputValues
@@ -145,20 +170,6 @@ const SignUp = () => {
                 console.log(data)
             })
     }
-    // const proceedCheckout = async () => {
-    //     try {
-    //         const response = await axios.post('/api/users', {
-    //             username: inputValues.username,
-    //             email: inputValues.email,
-    //             password: inputValues.password,
-    //             address: inputValues.address,
-    //             phone_number: inputValues.phone_number,
-    //         });
-    //         console.log(response);
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
 
     const colorize = (color, line, placeholder) => {
         gsap.to(line, { stroke: color, duration: 0.75 });
@@ -167,7 +178,7 @@ const SignUp = () => {
 
 
     return (
-        <StyledSignUp>
+        <StyledSignUpForm >
             <div className="details">
                 <h2 className="detail-title">Customer Details</h2>
                 <p>Used for sign up and delivery notifications.</p>
@@ -176,10 +187,17 @@ const SignUp = () => {
                     {fields.map((ele, i) => (
                         <div className="input-container" key={i}>
                             <label className={`placeholder ${ele.split(' ')[0]}`}>{ele}</label>
-                            <input type="text" name={ele.split(' ')[0]} autoComplete="off" className="input"
-                                onFocus={inputFocus}
-                                onBlur={inputBlur}
-                                onChange={inputValidate} />
+                            {userDetail == null ?
+                                <input type="text" name={ele.split(' ')[0]} autoComplete="off" className="input"
+                                    onFocus={inputFocus}
+                                    onBlur={inputBlur}
+                                    onChange={inputValidate}
+                                />
+                                :
+
+                                <div className='display-input'>{getReadValue(ele)}</div>
+                            }
+
                             <svg className="line-svg" width="300" height="2" viewBox="0 0 300 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path className="elastic-line" d="M0 0.999512C0 0.999512 60.5 0.999512 150 0.999512C239.5 0.999512 300 0.999512 300 0.999512" stroke="#D1D4DA" strokeWidth="2" />
                             </svg>
@@ -190,14 +208,14 @@ const SignUp = () => {
             </div>
 
             <div className="checkout">
-                {currentStock && <SubmitCheckout currentStock={currentStock} isValid={isValid} proceedCheckout={proceedCheckout} />}
+                {<SubmitCheckout proceedCheckout={proceedCheckout} isValid={isValid} />}
             </div>
 
-        </StyledSignUp>
+        </StyledSignUpForm>
     );
 };
 
-const StyledSignUp = styled.div`
+const StyledSignUpForm = styled.div`
     padding: 2rem 10% ;
     display: flex;
     justify-content: space-between;
@@ -218,7 +236,7 @@ const StyledSignUp = styled.div`
             display: grid;
             /* flex-direction: column; */
             grid-template-columns: repeat(2, 1fr);
-            row-gap: 5rem;
+            row-gap: 2rem;
             column-gap: 8rem;
             /* width: 50%; */
             margin-top: 1rem;
@@ -248,6 +266,13 @@ const StyledSignUp = styled.div`
                     font-size: 1.2rem;
                 }
 
+                .display-input {
+                    width: 100%;
+                    height: 2rem;
+                    color: grey;
+                    font-size: 1.2rem;
+                }
+
                 svg {
                     transform: scale(0.8);
                     transform-origin: left;
@@ -263,4 +288,4 @@ const StyledSignUp = styled.div`
 
 `
 
-export default SignUp;
+export default SignUpForm;
