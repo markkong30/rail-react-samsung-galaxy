@@ -120,7 +120,7 @@ const StyledSignUp = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 90vh;
+    min-height: calc(90vh - 10px);
     background: #F2F2F2;
 
 

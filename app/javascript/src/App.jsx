@@ -11,6 +11,7 @@ import Contact from './components/buy/contact';
 import Nav from './reusable/Nav';
 import Footer from './reusable/Footer';
 import User from './components/user/user';
+import Success from './components/success/success';
 
 const App = () => {
     const location = useLocation();
@@ -48,8 +49,15 @@ const App = () => {
                     <Route path="/buy/checkout/:title/:storage">
                         <Contact />
                     </Route>
-                    <Route path="/user/:status">
+                    <Route exact path="/user/:status">
                         <User />
+                    </Route>
+                    <Route exact path="/user/:order_id/success">
+                        <Success />
+                    </Route>
+
+                    <Route path='*'>
+                        <NotFound />
                     </Route>
 
                 </Switch>
@@ -60,4 +68,11 @@ const App = () => {
 
 }
 
+
+const NotFound = () => {
+    return (
+        <h1 style={{ marginTop: '50vh' }}>404 NOT FOUND</h1>
+
+    )
+}
 export default App;

@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     #phones
     get '/phones/stock' => 'phones#stock'
 
+    #orders
+    get '/orders/:id' => 'orders#detail'
+
+    #charges
+    post '/charges/mark_complete' => 'charges#mark_complete'
+
     resources :phones, only: [:index]
     resources :specs, only: [:index]
     resources :users, only: [:create]

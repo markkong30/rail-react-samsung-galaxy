@@ -4,11 +4,15 @@ import styled from 'styled-components';
 import { gsap } from "gsap";
 import { validateEmail, validateUsername, validateMobile, validatePassword, validateAddress } from '../../reusable/validation';
 import SubmitCheckout from './small_components/submitCheckout';
+import { useDispatch } from 'react-redux';
+import { authenticate } from '../../redux/actions/authenticate';
+
 
 const SignUpForm = ({ userDetail }) => {
     const fields = ['Username', 'Email', 'Password', 'Address', 'Mobile Number'];
     const form = useRef(null);
     const q = gsap.utils.selector(form);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (userDetail) {
@@ -155,35 +159,58 @@ const SignUpForm = ({ userDetail }) => {
 
     const proceedCheckout = (title, storage) => {
         console.log(userDetail)
-        if (userDetail !== null) {
-            return fetch('/api/orders', safeCredentials({
+
+        if (userDetail == null) {
+            fetch('/api/users', safeCredentials({
                 method: 'POST',
                 body: JSON.stringify({
-                    phone: {
-                        title,
-                        storage
-                    }
+                    user: inputValues
                 })
             }))
                 .then(handleErrors)
                 .then(data => {
                     console.log(data)
-                    return initiateStripeCheckout(data.order.id)
+                    return logInHandler(title, storage);
                 })
         }
 
+        return submitOrder(title, storage);
 
-        return fetch('/api/users', safeCredentials({
+    }
+
+    const logInHandler = (title, storage) => {
+        fetch('/api/sessions', safeCredentials({
             method: 'POST',
             body: JSON.stringify({
-                user: inputValues
+                user: {
+                    email: inputValues.email,
+                    password: inputValues.password,
+                },
+            })
+        }))
+            .then(handleErrors)
+            .then(data => {
+                dispatch(authenticate());
+            })
+            .then(() => {
+                return submitOrder(title, storage);
+            })
+    }
+
+    const submitOrder = (title, storage) => {
+        fetch('/api/orders', safeCredentials({
+            method: 'POST',
+            body: JSON.stringify({
+                phone: {
+                    title,
+                    storage
+                }
             })
         }))
             .then(handleErrors)
             .then(data => {
                 console.log(data)
                 return initiateStripeCheckout(data.order.id)
-
             })
     }
 

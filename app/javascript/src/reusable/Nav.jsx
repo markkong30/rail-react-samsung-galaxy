@@ -60,6 +60,7 @@ const Nav = () => {
                 <div className="dropdown" ref={dropdown}>
                     <div className="toggle" onClick={() => setIsOpen(!isOpen)}>
                         <img className='btn-toggle' src={userIcon} alt="" />
+                        {userDetail && <span className='toggle-name' >{userDetail.username}</span>}
                     </div>
                     {isOpen &&
                         <ul className="items">
@@ -157,11 +158,21 @@ const Navbar = styled(motion.nav)`
          position: relative;
          white-space: nowrap;
          
-         
-         img {
-             width: 25px;
-             height: 25px;
+         .toggle {
+             display: flex;
+             align-items: flex-end;
+
+            img {
+                width: 25px;
+                height: 25px;
+            }
+
+            .toggle-name {
+                margin-left: 0.5rem;
+                font-size: 0.9rem;
+            }
          }
+         
 
          .items {
              position: absolute;
@@ -186,7 +197,7 @@ const Navbar = styled(motion.nav)`
                      text-decoration: underline;
                  }
              }
-
+             
              img {
              width: 20px;
              height: 20px;

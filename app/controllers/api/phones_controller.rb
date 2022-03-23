@@ -11,5 +11,15 @@ module Api
 
         render 'api/phones/stock', status: :ok
       end
+
+      def update
+        @phone = Phone.find_by(id: params[:id])
+        return render json: { error: 'not_found' }, status: :not_found if !@phone
+
+        @phone.update(stock: params[:stock])
+
+        render 'api/phones/update', status: :ok
+      end
+
     end
   end

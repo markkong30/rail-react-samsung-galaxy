@@ -13,8 +13,11 @@ const Footer = () => {
 
 const StyledFooter = styled.div`
     footer {
-        padding: 2rem;
+        height: 70px;
         border-top: 1px solid #D9D9D9;
+        display: flex;
+        align-items: center;
+        padding: 0 2rem;
 
         p {
             font-size: 0.8rem;

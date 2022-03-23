@@ -211,7 +211,8 @@ const StyledSignUp = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 90vh;
+    min-height: calc(100vh - 150px);
+
     background: #F2F2F2;
 
     .checkout {
