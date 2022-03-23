@@ -57,6 +57,7 @@ const StyledContact = styled(motion.div)`
     min-height: 90vh;
     display: flex;
     flex-direction: column;
+    padding: 0 10%;
 
 
     .progress {

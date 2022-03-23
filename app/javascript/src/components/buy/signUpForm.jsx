@@ -278,9 +278,10 @@ const SignUpForm = ({ userDetail }) => {
 };
 
 const StyledSignUpForm = styled.div`
-    padding: 2rem 10% ;
+    padding: 3rem 0 ;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10rem;
 
     .checkout {
         align-self: flex-end;
@@ -297,11 +298,12 @@ const StyledSignUpForm = styled.div`
         .form {
             display: grid;
             /* flex-direction: column; */
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(200px, 1fr));
             row-gap: 2rem;
             column-gap: 8rem;
             /* width: 50%; */
             margin-top: 1rem;
+            width: 100%;
 
             .input-container {
                 display: flex;

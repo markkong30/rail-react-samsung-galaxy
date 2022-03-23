@@ -1,7 +1,7 @@
 module Api
     class PhonesController < ApplicationController
       def index
-        @phones = Phone.all
+        @phones = Phone.order(:created_at)
         render 'api/phones/index', status: :ok
       end
       
