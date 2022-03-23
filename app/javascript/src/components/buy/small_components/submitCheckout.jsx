@@ -24,7 +24,7 @@ const SubmitCheckout = ({ proceedCheckout, isValid }) => {
                         <li>Galaxy S22 Ultra 5G, <span>{currentStock.title}, {currentStock.storage}GB</span></li>
                     </div>
                     {isValid ?
-                        <motion.button whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }} className="btn btn-checkout" onClick={proceedCheckout}>Make Payment</motion.button>
+                        <motion.button whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }} className="btn btn-checkout" onClick={() => proceedCheckout(title, storage)}>Make Payment</motion.button>
                         :
                         <button className="btn-out-of-stock">Make Payment</button>
                     }

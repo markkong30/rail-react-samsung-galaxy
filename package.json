@@ -11,6 +11,7 @@
     "@react-three/fiber": "^7.0.26",
     "axios": "^0.26.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "dotenv": "^16.0.0",
     "framer-motion": "^6.2.8",
     "gsap": "^3.9.1",
     "prop-types": "^15.8.1",

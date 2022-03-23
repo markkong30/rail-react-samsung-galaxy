@@ -173,9 +173,13 @@ const StyledBuy = styled(motion.div)`
             }
         }
         
-
     }
 
+    @media (max-width: 1400px) {
+        .buy-container {
+            padding: 5% 0 5% 10%;
+        }
+    }
    
 
 `

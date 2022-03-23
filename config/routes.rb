@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :specs, only: [:index]
     resources :users, only: [:create]
     resources :sessions, only: [:create]
+    resources :orders, only: [:create]
+    resources :charges, only: [:create]
+
 
 
   end

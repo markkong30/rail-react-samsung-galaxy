@@ -26,9 +26,9 @@ const pageTransition = {
 }
 
 const homeTransition = {
-    hidden: { opacity: 0, y: '100vh' },
-    show: { opacity: 1, y: 0, transition: { duration: 1 } },
-    exit: { opacity: 0, y: '100vh', transition: { duration: 1 } },
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { duration: 1 } },
+    exit: { opacity: 0, transition: { duration: 1 } },
 }
 
 export { arrowRotate, fadeIn, waterTranslate, slideUp, pageTransition, homeTransition };

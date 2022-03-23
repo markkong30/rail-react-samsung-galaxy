@@ -1,4 +1,5 @@
 json.phone do
+        json.id @phone.id
         json.title @phone.title
         json.color @phone.color
         json.image @phone.image

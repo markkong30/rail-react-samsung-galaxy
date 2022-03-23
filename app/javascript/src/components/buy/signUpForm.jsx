@@ -153,9 +153,23 @@ const SignUpForm = ({ userDetail }) => {
 
     }
 
-    const proceedCheckout = () => {
-        if (userDetail) {
-
+    const proceedCheckout = (title, storage) => {
+        console.log(userDetail)
+        if (userDetail !== null) {
+            return fetch('/api/orders', safeCredentials({
+                method: 'POST',
+                body: JSON.stringify({
+                    phone: {
+                        title,
+                        storage
+                    }
+                })
+            }))
+                .then(handleErrors)
+                .then(data => {
+                    console.log(data)
+                    return initiateStripeCheckout(data.order.id)
+                })
         }
 
 
@@ -168,6 +182,27 @@ const SignUpForm = ({ userDetail }) => {
             .then(handleErrors)
             .then(data => {
                 console.log(data)
+                return initiateStripeCheckout(data.order.id)
+
+            })
+    }
+
+    const initiateStripeCheckout = (order_id) => {
+        return fetch(`/api/charges?order_id=${order_id}&cancel_url=${window.location.pathname}`, safeCredentials({
+            method: 'POST',
+        }))
+            .then(handleErrors)
+            .then(response => {
+                const stripe = Stripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
+
+                stripe.redirectToCheckout({
+                    sessionId: response.charge.checkout_session_id,
+                }).then((result) => {
+                    console.log(result)
+                });
+            })
+            .catch(error => {
+                console.log(error);
             })
     }
 
