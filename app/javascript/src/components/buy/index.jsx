@@ -35,7 +35,7 @@ const Buy = () => {
         const stock = currentStock.stock;
 
         switch (true) {
-            case stock >= 20:
+            case stock >= 15:
                 return 'In Stock';
             case stock >= 10:
                 return 'Limited Stock!';

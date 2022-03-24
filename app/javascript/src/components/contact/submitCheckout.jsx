@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion/dist/framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { fetchCurrentStock } from '../../../redux/actions/fetchCurrentStock';
+import { fetchCurrentStock } from '../../redux/actions/fetchCurrentStock';
 
 const SubmitCheckout = ({ proceedCheckout, isValid }) => {
     const dispatch = useDispatch();

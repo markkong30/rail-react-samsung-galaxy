@@ -4,7 +4,7 @@ import { motion } from 'framer-motion/dist/framer-motion';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import tick from '@images/buy-tick';
-import Progress from '../buy/small_components/progress';
+import Progress from '../contact/progress';
 import { useDispatch } from 'react-redux';
 import { updateProgress } from '../../redux/actions/updateProgress';
 import { homeTransition } from '../../reusable/animation';

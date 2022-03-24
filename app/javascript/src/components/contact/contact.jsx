@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion/dist/framer-motion';
 import { pageTransition } from '../../reusable/animation';
 import { useSelector, useDispatch } from 'react-redux';
-import Progress from './small_components/progress';
+import Progress from './progress';
 import Spinner from '../../reusable/spinner';
 import { updateURL } from '../../redux/actions/updateURL';
 

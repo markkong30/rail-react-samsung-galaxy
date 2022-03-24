@@ -67,7 +67,9 @@ const Nav = () => {
                             <li className="item">
                                 <img src={userIcon} alt="" />
                                 {userDetail ?
-                                    <span>{userDetail.username}</span>
+                                    <Link to="/user/orders">
+                                        <span>{userDetail.username}</span>
+                                    </Link>
                                     :
                                     <Link to="/user/login">
                                         <span>Log In / Sign Up</span>
@@ -75,7 +77,9 @@ const Nav = () => {
                                 }
                             </li>
                             <li className="item">
-                                <p>Orders</p>
+                                <Link to="/user/orders">
+                                    <p>Orders</p>
+                                </Link>
                             </li>
                             <li className="item">
                                 <p>Contact Us</p>
@@ -149,6 +153,7 @@ const Navbar = styled(motion.nav)`
             &:hover {
                 background-position: left;
                 color: #016AEA;
+                border: 1px solid #016AEA;
             }
      }
 

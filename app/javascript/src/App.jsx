@@ -7,11 +7,12 @@ import { fetchSpecs } from './redux/actions/fetchSpecs';
 import { authenticate } from './redux/actions/authenticate';
 import Home from './components/home';
 import Buy from './components/buy';
-import Contact from './components/buy/contact';
+import Contact from './components/contact/contact';
 import Nav from './reusable/Nav';
 import Footer from './reusable/Footer';
 import User from './components/user/user';
 import Success from './components/success/success';
+import Orders from './components/order/orders';
 
 const App = () => {
     const location = useLocation();
@@ -49,13 +50,15 @@ const App = () => {
                     <Route path="/buy/checkout/:title/:storage">
                         <Contact />
                     </Route>
+                    <Route exact path="/user/orders">
+                        <Orders />
+                    </Route>
                     <Route exact path="/user/:status">
                         <User />
                     </Route>
                     <Route exact path="/user/:order_id/success">
                         <Success />
                     </Route>
-
                     <Route path='*'>
                         <NotFound />
                     </Route>

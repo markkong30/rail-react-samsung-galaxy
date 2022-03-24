@@ -28,6 +28,19 @@ module Api
 
       end
 
+      def orders_by_user
+        token = cookies.signed[:samsung_session_token]
+        session = Session.find_by(token: token)
+        return render json: { error: 'user not logged in' }, status: :unauthorized if !session
+
+        user = session.user
+        @orders = user.orders
+        return render json: { error: 'cannot find orders' }, status: :not_found if !@orders
+
+        return render 'api/orders/orders_by_user', status: :ok
+
+      end
+
       
     end
   end

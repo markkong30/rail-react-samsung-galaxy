@@ -6,4 +6,9 @@ class Order < ApplicationRecord
     validates :user, presence: true
     validates :phone, presence: true
 
+
+    def is_paid?
+        self.charges.pluck(:complete).include?(true)
+    end
+
 end

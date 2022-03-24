@@ -3,7 +3,7 @@ import { safeCredentials, handleErrors } from '@src/reusable/fetchHelper';
 import styled from 'styled-components';
 import { gsap } from "gsap";
 import { validateEmail, validateUsername, validateMobile, validatePassword, validateAddress } from '../../reusable/validation';
-import SubmitCheckout from './small_components/submitCheckout';
+import SubmitCheckout from './submitCheckout';
 import { useDispatch } from 'react-redux';
 import { authenticate } from '../../redux/actions/authenticate';
 import { updateProgress } from '../../redux/actions/updateProgress';
@@ -16,19 +16,9 @@ const SignUpForm = ({ userDetail, setSpinner }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(window.location.pathname)
         if (userDetail) {
-            // setInputValues({
-            //     username: userDetail.username,
-            //     email: userDetail.email,
-            //     password: '*******',
-            //     address: userDetail.address,
-            //     phone_number: userDetail.phone_number,
-
-            // })
             gsap.to(q(`.placeholder`), { y: -25, scale: 0.7, duration: 0.5, transformOrigin: "top left", ease: "power2.out" }, "<15%");
             setIsValid(true);
-
         }
 
     }, [userDetail])

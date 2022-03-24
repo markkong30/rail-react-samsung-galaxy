@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get '/phones/stock' => 'phones#stock'
 
     #orders
+    get '/orders/orders_by_user' => 'orders#orders_by_user'
     get '/orders/:id' => 'orders#detail'
 
     #charges
