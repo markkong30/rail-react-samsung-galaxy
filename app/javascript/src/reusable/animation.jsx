@@ -31,4 +31,5 @@ const homeTransition = {
     exit: { opacity: 0, transition: { duration: 1 } },
 }
 
+
 export { arrowRotate, fadeIn, waterTranslate, slideUp, pageTransition, homeTransition };

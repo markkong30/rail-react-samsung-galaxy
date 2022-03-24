@@ -10,7 +10,7 @@ const Checkout = ({ currentStock }) => {
             <h3>Total <span>£{currentStock.price}.00</span></h3>
             <div className="summary">
                 <h4>Order Summary</h4>
-                <li>Galaxy S22 Ultra 5G, <span>{currentStock.title}, {currentStock.storage}GB</span></li>
+                <li>Galaxy S22 Ultra 5G, <span>{currentStock.display_title}, {currentStock.storage}GB</span></li>
             </div>
             {currentStock.stock > 0 ?
                 <Link to={`/buy/checkout/${currentStock.title}/${currentStock.storage}`}>

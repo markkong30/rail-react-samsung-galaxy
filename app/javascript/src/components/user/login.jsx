@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import { gsap } from "gsap";
 import { motion } from 'framer-motion/dist/framer-motion';
 import { useHistory, Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from '../../redux/actions/authenticate';
+import { updateURL } from '../../redux/actions/updateURL';
 
 
 const LogIn = () => {
@@ -14,6 +15,7 @@ const LogIn = () => {
     const history = useHistory();
     const q = gsap.utils.selector(form);
     const dispatch = useDispatch();
+    const { redirectURL } = useSelector(state => state.buy)
 
     const [isValid, setIsValid] = useState(false);
     const [inputValues, setInputValues] = useState({
@@ -57,7 +59,9 @@ const LogIn = () => {
             .then(handleErrors)
             .then(data => {
                 dispatch(authenticate());
-                history.goBack();
+                history.push(redirectURL);
+                dispatch(updateURL('/'));
+                // history.goBack();
             })
     }
 

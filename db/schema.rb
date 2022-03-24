@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_114909) do
 
   create_table "phones", force: :cascade do |t|
     t.string "title"
+    t.string "display_title"
     t.string "color"
     t.string "image"
     t.string "size"

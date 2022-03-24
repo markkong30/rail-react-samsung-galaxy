@@ -9,7 +9,8 @@
 
 phones = Phone.create([
     {
-        title: 'Burgundy',
+        title: 'burgundy',
+        display_title: 'Burgundy',
         color: '#644D58',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/burgundy_front.jpg',
@@ -23,7 +24,8 @@ phones = Phone.create([
         storage: 128,
         price: 1149
     }, {
-        title: 'Burgundy',
+        title: 'burgundy',
+        display_title: 'Burgundy',
         color: '#644D58',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/burgundy_front.jpg',
@@ -37,7 +39,8 @@ phones = Phone.create([
         storage: 256,
         price: 1249
     }, {
-        title: 'Burgundy',
+        title: 'burgundy',
+        display_title: 'Burgundy',
         color: '#644D58',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/burgundy_front.jpg',
@@ -51,7 +54,8 @@ phones = Phone.create([
         storage: 512,
         price: 1329
     }, {
-        title: 'Green',
+        title: 'green',
+        display_title: 'Green',
         color: '#587876',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/green_front.jpg',
@@ -65,7 +69,8 @@ phones = Phone.create([
         storage: 128,
         price: 1149
     }, {
-        title: 'Green',
+        title: 'green',
+        display_title: 'Green',
         color: '#587876',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/green_front.jpg',
@@ -79,7 +84,8 @@ phones = Phone.create([
         storage: 256,
         price: 1249
     }, {
-        title: 'Green',
+        title: 'green',
+        display_title: 'Green',
         color: '#587876',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/green_front.jpg',
@@ -93,7 +99,8 @@ phones = Phone.create([
         storage: 512,
         price: 1329
     }, {
-        title: 'Phantom White',
+        title: 'white',
+        display_title: 'Phantom White',
         color: '#E9E9E7',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/white_front.jpg',
@@ -107,7 +114,8 @@ phones = Phone.create([
         storage: 128,
         price: 1149
     }, {
-        title: 'Phantom White',
+        title: 'white',
+        display_title: 'Phantom White',
         color: '#E9E9E7',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/white_front.jpg',
@@ -121,7 +129,8 @@ phones = Phone.create([
         storage: 256,
         price: 1249
     }, {
-        title: 'Phantom White',
+        title: 'white',
+        display_title: 'Phantom White',
         color: '#E9E9E7',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/white_front.jpg',
@@ -135,7 +144,8 @@ phones = Phone.create([
         storage: 512,
         price: 1329
     }, {
-        title: 'Phantom Black',
+        title: 'black',
+        display_title: 'Phantom Black',
         color: '#000000',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/black_front.jpg',
@@ -149,7 +159,8 @@ phones = Phone.create([
         storage: 128,
         price: 1149
     }, {
-        title: 'Phantom Black',
+        title: 'black',
+        display_title: 'Phantom Black',
         color: '#000000',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/black_front.jpg',
@@ -163,7 +174,8 @@ phones = Phone.create([
         storage: 256,
         price: 1249
     }, {
-        title: 'Phantom Black',
+        title: 'black',
+        display_title: 'Phantom Black',
         color: '#000000',
         image: {
             front: 'https://rails-react-samsung.s3.amazonaws.com/carousel/black_front.jpg',

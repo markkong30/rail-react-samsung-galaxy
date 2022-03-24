@@ -4,11 +4,17 @@ import { motion } from 'framer-motion/dist/framer-motion';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import tick from '@images/buy-tick';
+import Progress from '../buy/small_components/progress';
+import { useDispatch } from 'react-redux';
+import { updateProgress } from '../../redux/actions/updateProgress';
+import { homeTransition } from '../../reusable/animation';
 
 const Success = () => {
     const { order_id } = useParams();
     const [orderDetails, setOrderDetails] = useState([]);
     const { phone, user } = orderDetails;
+    const dispatch = useDispatch();
+
 
     useEffect(() => {
         const fetchOrder = async () => {
@@ -16,13 +22,19 @@ const Success = () => {
             console.log(data.data.order)
             setOrderDetails(data.data.order);
         }
+        dispatch(updateProgress(3))
         fetchOrder();
 
+        return () => {
+            dispatch(updateProgress(1))
+
+        }
     }, [order_id])
 
 
     return (
-        <StyledSuccess>
+        <StyledSuccess variants={homeTransition} initial="hidden" animate="show" exit="exit">
+            <Progress />
             <div className="header">
                 <img src={tick} alt="" />
                 <h2 className="success-title">Your order has been succesfully paid.</h2>
@@ -34,7 +46,7 @@ const Success = () => {
                         <div className="summary-detail">
                             <div className="detail">
                                 <span className='detail-description'>Model</span>
-                                <span>Galaxy S22 Ultra 5G, {phone.title}, {phone.storage}GB</span>
+                                <span>Galaxy S22 Ultra 5G, {phone.display_title}, {phone.storage}GB</span>
                             </div>
                             <div className="detail">
                                 <span className='detail-description'>Total</span>

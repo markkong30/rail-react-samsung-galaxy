@@ -6,15 +6,17 @@ import { validateEmail, validateUsername, validateMobile, validatePassword, vali
 import SubmitCheckout from './small_components/submitCheckout';
 import { useDispatch } from 'react-redux';
 import { authenticate } from '../../redux/actions/authenticate';
+import { updateProgress } from '../../redux/actions/updateProgress';
 
 
-const SignUpForm = ({ userDetail }) => {
+const SignUpForm = ({ userDetail, setSpinner }) => {
     const fields = ['Username', 'Email', 'Password', 'Address', 'Mobile Number'];
     const form = useRef(null);
     const q = gsap.utils.selector(form);
     const dispatch = useDispatch();
 
     useEffect(() => {
+        console.log(window.location.pathname)
         if (userDetail) {
             // setInputValues({
             //     username: userDetail.username,
@@ -159,6 +161,8 @@ const SignUpForm = ({ userDetail }) => {
 
     const proceedCheckout = (title, storage) => {
         console.log(userDetail)
+        dispatch(updateProgress(2))
+        setSpinner(true);
 
         if (userDetail == null) {
             fetch('/api/users', safeCredentials({
@@ -210,7 +214,9 @@ const SignUpForm = ({ userDetail }) => {
             .then(handleErrors)
             .then(data => {
                 console.log(data)
-                return initiateStripeCheckout(data.order.id)
+                setTimeout(() => {
+                    return initiateStripeCheckout(data.order.id)
+                }, 2000)
             })
     }
 

@@ -12,7 +12,7 @@ const Palette = ({ currentColor, setCurrentColor }) => {
                     <button
                         onClick={() => setCurrentColor(phone)}>
                     </button>
-                    <label htmlFor="">{phone.title}</label>
+                    <label htmlFor="">{phone.display_title}</label>
                 </StyledColor>
             ))}
         </StyledPalette>

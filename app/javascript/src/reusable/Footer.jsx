@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Footer = () => {
+
     return (
-        <StyledFooter>
+        <StyledFooter >
             <footer>
                 <p>© 2022 Samsung Galaxy S22 Ultra Clone by Mark Kong.</p>
             </footer>

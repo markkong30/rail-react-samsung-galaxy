@@ -4,6 +4,7 @@ json.order do
     json.phone do
         json.phone_id @order.phone.id
         json.title @order.phone.title
+        json.display_title @order.phone.display_title
         json.color @order.phone.color
         json.image @order.phone.image
         json.size @order.phone.size

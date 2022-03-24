@@ -16,7 +16,7 @@ module Api
           payment_method_types: ['card'],
           line_items: [{
             name: "Order for Samsung Galaxy S22 Ultra",
-            description: "Your order is for Galaxy S22 Ultra 5G, #{phone.title}, #{phone.storage}GB.",
+            description: "Your order is for Galaxy S22 Ultra 5G, #{phone.display_title}, #{phone.storage}GB.",
             amount: (phone.price * 100.0).to_i, 
             currency: "gbp",
             quantity: 1,

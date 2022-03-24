@@ -8,7 +8,9 @@ import { fetchCurrentStock } from '../../../redux/actions/fetchCurrentStock';
 const SubmitCheckout = ({ proceedCheckout, isValid }) => {
     const dispatch = useDispatch();
     const { title, storage } = useParams();
+
     useEffect(() => {
+
         dispatch(fetchCurrentStock(title, storage))
     }, [dispatch])
     const { currentStock } = useSelector(state => state.buy);
@@ -21,7 +23,7 @@ const SubmitCheckout = ({ proceedCheckout, isValid }) => {
                     <h3>Total <span>£{currentStock.price}.00</span></h3>
                     <div className="summary">
                         <h4>Order Summary</h4>
-                        <li>Galaxy S22 Ultra 5G, <span>{currentStock.title}, {currentStock.storage}GB</span></li>
+                        <li>Galaxy S22 Ultra 5G, <span>{currentStock.display_title}, {currentStock.storage}GB</span></li>
                     </div>
                     {isValid ?
                         <motion.button whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }} className="btn btn-checkout" onClick={() => proceedCheckout(title, storage)}>Make Payment</motion.button>
