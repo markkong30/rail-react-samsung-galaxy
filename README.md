@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project aims to create a minimal clone of Samsung Galaxy S22 Ultra landing page, and a checkout session for purchase. The original website is on https://www.samsung.com/hk_en/smartphones/galaxy-s22-ultra/. 
 
-Things you may want to cover:
+Languages: React JS, Ruby on rails
 
-* Ruby version
+Libaries: gsap, framer motion, three js, redux, slick, toast etc...
 
-* System dependencies
+Pages: 
 
-* Configuration
+- Landing 
+- User login/ signup 
+- User orders
+- Stock and specs
+- Stripe checkout
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* To run the project, remember to run rails db:migrate && rails db:seed.
