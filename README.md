@@ -4,7 +4,7 @@ This project aims to create a minimal clone of Samsung Galaxy S22 Ultra landing 
 
 Languages: React JS, Ruby on rails
 
-Libaries: gsap, framer motion, three js, redux, slick, toast etc...
+Libaries: gsap, framer motion, three js, styled components, redux etc...
 
 Pages: 
 
