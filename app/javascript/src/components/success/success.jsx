@@ -7,7 +7,7 @@ import tick from '@images/buy-tick';
 import Progress from '../contact/progress';
 import { useDispatch } from 'react-redux';
 import { updateProgress } from '../../redux/actions/updateProgress';
-import { homeTransition } from '../../reusable/animation';
+import { pageTransition } from '../../reusable/animation';
 
 const Success = () => {
     const { order_id } = useParams();
@@ -33,7 +33,7 @@ const Success = () => {
 
 
     return (
-        <StyledSuccess variants={homeTransition} initial="hidden" animate="show" exit="exit">
+        <StyledSuccess variants={pageTransition} initial="hidden" animate="show" exit="exit">
             <Progress />
             <div className="header">
                 <img src={tick} alt="" />

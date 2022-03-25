@@ -67,7 +67,7 @@ const StyledContact = styled(motion.div)`
     align-items: center;
     padding: 0 10%;
     position: relative;
-    z-index: 1;
+    z-index: 100;
 
     .member-check {
         margin: 2% 20%;

@@ -24,18 +24,18 @@ const Slider = () => {
             })
         })
 
-        gsap.to('nav', {
-            scrollTrigger: ({
-                trigger: container,
-                scrub: true,
-                start: '40%',
-                end: "+=300",
-                // markers: true,
+        // gsap.to('nav', {
+        //     scrollTrigger: ({
+        //         trigger: container,
+        //         scrub: true,
+        //         start: '40%',
+        //         end: "+=300",
+        //         // markers: true,
 
-            }),
-            opacity: 0,
-            duration: 1.5,
-        })
+        //     }),
+        //     opacity: 0,
+        //     duration: 1.5,
+        // })
 
         tl.fromTo(q('video'), { currentTime: 0 }, { currentTime: 5, y: '100vh' });
 

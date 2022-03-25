@@ -7,6 +7,7 @@ import SubmitCheckout from './submitCheckout';
 import { useDispatch } from 'react-redux';
 import { authenticate } from '../../redux/actions/authenticate';
 import { updateProgress } from '../../redux/actions/updateProgress';
+import Notification from '../user/notification';
 
 
 const SignUpForm = ({ userDetail, setSpinner }) => {
@@ -19,6 +20,10 @@ const SignUpForm = ({ userDetail, setSpinner }) => {
         if (userDetail) {
             gsap.to(q(`.placeholder`), { y: -25, scale: 0.7, duration: 0.5, transformOrigin: "top left", ease: "power2.out" }, "<15%");
             setIsValid(true);
+            setNotificationProps({
+                ...notificationProps,
+                username: userDetail.username,
+            })
         }
 
     }, [userDetail])
@@ -46,6 +51,13 @@ const SignUpForm = ({ userDetail, setSpinner }) => {
         password: '',
         address: '',
         phone_number: '',
+    })
+
+    const [notificationProps, setNotificationProps] = useState({
+        render: false,
+        status: null,
+        component: 'checkout',
+        username: '',
     })
 
     const inputFocus = (e) => {
@@ -150,7 +162,10 @@ const SignUpForm = ({ userDetail, setSpinner }) => {
     }
 
     const proceedCheckout = (title, storage) => {
-        console.log(userDetail)
+        setNotificationProps({
+            ...notificationProps,
+            render: false
+        });
         dispatch(updateProgress(2))
         setSpinner(true);
 
@@ -164,7 +179,22 @@ const SignUpForm = ({ userDetail, setSpinner }) => {
                 .then(handleErrors)
                 .then(data => {
                     console.log(data)
+                    setNotificationProps({
+                        ...notificationProps,
+                        username: data.user.username,
+                    })
                     return logInHandler(title, storage);
+                })
+                .catch(error => {
+
+                    setNotificationProps({
+                        ...notificationProps,
+                        status: 'fail',
+                        render: true,
+                    })
+                    dispatch(updateProgress(1))
+                    return setSpinner(false);
+
                 })
         }
 
@@ -204,9 +234,15 @@ const SignUpForm = ({ userDetail, setSpinner }) => {
             .then(handleErrors)
             .then(data => {
                 console.log(data)
+                setNotificationProps({
+                    ...notificationProps,
+                    status: 'success',
+                    render: true,
+                })
+
                 setTimeout(() => {
                     return initiateStripeCheckout(data.order.id)
-                }, 2000)
+                }, 6000)
             })
     }
 
@@ -268,6 +304,8 @@ const SignUpForm = ({ userDetail, setSpinner }) => {
             <div className="checkout">
                 {<SubmitCheckout proceedCheckout={proceedCheckout} isValid={isValid} />}
             </div>
+
+            {notificationProps.render && <Notification username={notificationProps.username} notificationProps={notificationProps} />}
 
         </StyledSignUpForm>
     );

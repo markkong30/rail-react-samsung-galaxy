@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-
+import { motion } from 'framer-motion/dist/framer-motion';
+import { footerTransition } from './animation';
 const Footer = () => {
 
     return (
-        <StyledFooter >
+        <StyledFooter variants={footerTransition} initial="hidden" animate="show" exit="exit">
             <footer>
                 <p>© 2022 Samsung Galaxy S22 Ultra Clone by Mark Kong.</p>
             </footer>
@@ -12,7 +13,7 @@ const Footer = () => {
     );
 };
 
-const StyledFooter = styled.div`
+const StyledFooter = styled(motion.div)`
     footer {
         height: 70px;
         border-top: 1px solid #D9D9D9;

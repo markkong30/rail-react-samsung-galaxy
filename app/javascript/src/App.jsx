@@ -24,8 +24,6 @@ const App = () => {
         dispatch(authenticate());
     }, [dispatch])
 
-
-
     const scrollTop = () => {
         window.scrollTo({
             left: 0,
@@ -39,6 +37,7 @@ const App = () => {
             <Nav />
             <AnimatePresence exitBeforeEnter
                 onExitComplete={scrollTop}
+                initial={false}
             >
                 <Switch location={location} key={location.pathname}>
                     <Route exact path="/">

@@ -7,6 +7,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from '../../redux/actions/authenticate';
 import { updateURL } from '../../redux/actions/updateURL';
+import Notification from './notification';
 
 
 const LogIn = () => {
@@ -16,11 +17,17 @@ const LogIn = () => {
     const q = gsap.utils.selector(form);
     const dispatch = useDispatch();
     const { redirectURL } = useSelector(state => state.buy)
-
     const [isValid, setIsValid] = useState(false);
     const [inputValues, setInputValues] = useState({
         email: '',
         password: '',
+    })
+
+    const [notificationProps, setNotificationProps] = useState({
+        render: false,
+        status: null,
+        component: 'login',
+        username: '',
     })
 
     const inputFocus = (e) => {
@@ -45,8 +52,14 @@ const LogIn = () => {
         }
     }
 
-    const logInHandler = () => {
+    const logInHandler = (e) => {
+        e.preventDefault();
         console.log('here')
+        setNotificationProps({
+            ...notificationProps,
+            render: false
+        })
+
         fetch('/api/sessions', safeCredentials({
             method: 'POST',
             body: JSON.stringify({
@@ -58,10 +71,31 @@ const LogIn = () => {
         }))
             .then(handleErrors)
             .then(data => {
-                dispatch(authenticate());
-                history.push(redirectURL);
-                dispatch(updateURL('/'));
-                // history.goBack();
+                const username = data.username;
+                console.log(data)
+                setNotificationProps({
+                    ...notificationProps,
+                    status: 'success',
+                    render: true,
+                    username: username,
+                })
+
+                setTimeout(() => {
+                    dispatch(authenticate());
+                    history.push(redirectURL);
+                    dispatch(updateURL('/'));
+                }, 6000)
+            })
+            .catch(error => {
+                console.log(error)
+                setNotificationProps({
+                    ...notificationProps,
+                    status: 'fail',
+                    render: true,
+                })
+            })
+            .then(() => {
+
             })
     }
 
@@ -85,7 +119,7 @@ const LogIn = () => {
                 </div>
 
 
-                <form className="form" ref={form}>
+                <form className="form" ref={form} onSubmit={logInHandler}>
                     {fields.map((ele, i) => (
                         <div className="input-container" key={i}>
                             <label className={`placeholder ${ele.split(' ')[0]}`}>{ele}</label>
@@ -99,22 +133,24 @@ const LogIn = () => {
                             </svg>
                         </div>
                     ))}
+                    <div className="submit">
+                        {isValid ?
+                            <motion.button className="btn-submit" whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }}
+                                type="submit">Log in</motion.button>
+                            :
+                            <button className="btn-disable">Log in</button>
+                        }
+                        <h4 className="switch">Don't have an account?
+                            <Link to="/user/signup">
+                                <span className='signup'> Sign up here!</span>
+                            </Link>
+                        </h4>
+                    </div>
                 </form>
-                <div className="submit">
-                    {isValid ?
-                        <motion.button className="btn-submit" whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }}
-                            onClick={logInHandler}>Log in</motion.button>
-                        :
-                        <button className="btn-disable">Log in</button>
-                    }
-                    <h4 className="switch">Don't have an account?
-                        <Link to="/user/signup">
-                            <span className='signup'> Sign up here!</span>
-                        </Link>
-                    </h4>
-                </div>
+
             </div>
 
+            {notificationProps.render && <Notification username={notificationProps.username} notificationProps={notificationProps} />}
 
         </StyledSignUp>
     );

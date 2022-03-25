@@ -2,11 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { safeCredentials, handleErrors } from '@src/reusable/fetchHelper';
 import styled from 'styled-components';
 import { gsap } from "gsap";
-import { motion } from 'framer-motion/dist/framer-motion';
+import { motion, AnimatePresence } from 'framer-motion/dist/framer-motion';
 import { validateEmail, validateUsername, validateMobile, validatePassword, validateAddress } from '@src/reusable/validation'
 import { useHistory, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { authenticate } from '../../redux/actions/authenticate';
+import Notification from './notification';
 
 const SignUp = () => {
     const fields = ['Username', 'Email', 'Password', 'Address', 'Mobile Number'];
@@ -22,6 +23,11 @@ const SignUp = () => {
         password: '',
         address: '',
         phone_number: '',
+    })
+    const [notificationProps, setNotificationProps] = useState({
+        render: false,
+        status: null,
+        component: 'signup',
     })
 
     const inputFocus = (e) => {
@@ -126,7 +132,13 @@ const SignUp = () => {
 
     }
 
-    const createUser = () => {
+    const createUser = (e) => {
+        e.preventDefault();
+        setNotificationProps({
+            ...notificationProps,
+            render: false
+        })
+
         fetch('/api/users', safeCredentials({
             method: 'POST',
             body: JSON.stringify({
@@ -136,7 +148,22 @@ const SignUp = () => {
             .then(handleErrors)
             .then(data => {
                 console.log(data.user)
-                logIn();
+                setNotificationProps({
+                    ...notificationProps,
+                    status: 'success',
+                    render: true,
+                })
+                setTimeout(() => {
+                    logIn();
+                }, 6000)
+            })
+            .catch(error => {
+                console.log(error)
+                setNotificationProps({
+                    ...notificationProps,
+                    status: 'fail',
+                    render: true,
+                })
             })
     }
 
@@ -169,11 +196,10 @@ const SignUp = () => {
             <div className="details">
                 <div className="header">
                     <h2 className="detail-title">Create your Samsung account</h2>
-                    <p>Used for sign up and delivery notifications.</p>
                 </div>
 
 
-                <form className="form" ref={form}>
+                <form className="form" ref={form} onSubmit={createUser}>
                     {fields.map((ele, i) => (
                         <div className="input-container" key={i}>
                             <label className={`placeholder ${ele.split(' ')[0]}`}>{ele}</label>
@@ -186,22 +212,23 @@ const SignUp = () => {
                             </svg>
                         </div>
                     ))}
+                    <div className="submit">
+                        {isValid ?
+                            <motion.button className="btn-submit" whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }}
+                            >Sign Up</motion.button>
+                            :
+                            <button className="btn-disable">Sign Up</button>
+                        }
+                        <h4 className="switch">Already had an account?
+                            <Link to="/user/login">
+                                <span className='login'> Log in here!</span>
+                            </Link>
+                        </h4>
+                    </div>
                 </form>
-                <div className="submit">
-                    {isValid ?
-                        <motion.button className="btn-submit" whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }}
-                            onClick={createUser}>Sign Up</motion.button>
-                        :
-                        <button className="btn-disable">Sign Up</button>
-                    }
-                    <h4 className="switch">Already had an account?
-                        <Link to="/user/login">
-                            <span className='login'> Log in here!</span>
-                        </Link>
-                    </h4>
-                </div>
-            </div>
 
+            </div>
+            {notificationProps.render && <Notification username={inputValues.username} notificationProps={notificationProps} />}
 
         </StyledSignUp>
     );
@@ -212,6 +239,7 @@ const StyledSignUp = styled.div`
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 150px);
+    position: relative;
 
     background: #F2F2F2;
 
@@ -249,11 +277,12 @@ const StyledSignUp = styled.div`
         .form {
             display: grid;
             /* flex-direction: column; */
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 200px);
             row-gap: 2rem;
             column-gap: 8rem;
             /* width: 50%; */
             margin-top: 1rem;
+            justify-content: center;
 
             .input-container {
                 display: flex;
@@ -292,6 +321,10 @@ const StyledSignUp = styled.div`
         }
 
         .submit {
+            grid-row-start: 4;
+            grid-column: span 2;
+            justify-self: center;
+
             .btn-submit {
                 margin-top: 2rem;
                 padding: 1rem 0;
@@ -332,7 +365,6 @@ const StyledSignUp = styled.div`
         }
         
     }
-
 
 `
 

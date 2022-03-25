@@ -10,7 +10,7 @@ module Api
           httponly: true
         }
 
-        render json: {success: true}, status: :created
+        render 'api/sessions/authenticated', status: :created
       else
         render json: { success: false }, status: :bad_request
       end

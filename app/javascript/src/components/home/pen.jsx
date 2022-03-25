@@ -25,7 +25,7 @@ const Pen = () => {
         })
 
         tl.to(q('img'), { y: 0, ease: 'power2.out', duration: 1.5 });
-        tl.to('nav', { opacity: 1, duration: 1.5 }, '<');
+        // tl.to('nav', { opacity: 1, duration: 1.5 }, '<');
     })
 
 

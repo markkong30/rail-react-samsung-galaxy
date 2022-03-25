@@ -102,7 +102,7 @@ const Nav = () => {
     );
 };
 
-const Navbar = styled(motion.nav)`
+const Navbar = styled.nav`
     min-height: 70px;
     display: flex;
     justify-content: space-between;
@@ -123,7 +123,7 @@ const Navbar = styled(motion.nav)`
     
     .nav-links {
         display: flex;
-        flex-basis: 50%;
+        flex-basis: 70%;
         justify-content: flex-end;
         align-items: center;
     }
