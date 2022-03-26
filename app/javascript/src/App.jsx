@@ -22,6 +22,7 @@ const App = () => {
         dispatch(fetchPhones());
         dispatch(fetchSpecs());
         dispatch(authenticate());
+        console.log(location.pathname)
     }, [dispatch])
 
     const scrollTop = () => {
@@ -37,7 +38,7 @@ const App = () => {
             <Nav />
             <AnimatePresence exitBeforeEnter
                 onExitComplete={scrollTop}
-                initial={false}
+                initial={location.pathname == '/' ? true : false}
             >
                 <Switch location={location} key={location.pathname}>
                     <Route exact path="/">

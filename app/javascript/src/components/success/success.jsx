@@ -77,7 +77,6 @@ const Success = () => {
                         <h3 className="summary-title">Shipping Address</h3>
                         <div className="summary-detail">
                             <div className="detail">
-                                {/* <span className='detail-description'>Model</span> */}
                                 <span>{user.address}</span>
                             </div>
 
