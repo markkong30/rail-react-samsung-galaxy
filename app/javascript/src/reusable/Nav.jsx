@@ -123,7 +123,7 @@ const Navbar = styled.nav`
     
     .nav-links {
         display: flex;
-        flex-basis: 70%;
+        flex-basis: 80%;
         justify-content: flex-end;
         align-items: center;
     }
@@ -218,6 +218,23 @@ const Navbar = styled.nav`
 
          }
      }
+
+     @media (max-width: 900px) {
+         /* padding: 0 5%; */
+        /* transform: scale(0.8); */
+        .logo img {
+        transform: scale(3.3) translateY(5%);
+        }
+
+        .btn-buy {
+            padding: 0.5rem 1rem;
+        }
+
+        ul.links {
+            display: none;
+        }
+     }
+
 `
 
 

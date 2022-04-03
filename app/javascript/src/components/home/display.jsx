@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import phone from '@images/horizontal-phone.jpeg';
 import icon from '@images/vde.jpeg'
 
-const Sixth = () => {
+const Display = () => {
     gsap.registerPlugin(ScrollTrigger);
     const ref = useRef(null);
     const q = gsap.utils.selector(ref)
@@ -13,22 +13,42 @@ const Sixth = () => {
     useEffect(() => {
         const container = ref.current;
         console.log(container)
+        ScrollTrigger.matchMedia({
+            // desktop
+            "(min-width: 800px)": function () {
+                gsap.to(q('.image img'), {
+                    scrollTrigger: ({
+                        trigger: container,
+                        start: '0%',
+                        end: '30%',
+                        scrub: true,
+                        // markers: true,
+                        id: 'display'
+                    }),
+                    opacity: 1,
+                })
+            },
 
-        gsap.to(q('.image img'), {
-            scrollTrigger: ({
-                trigger: container,
-                start: '0%',
-                end: '30%',
-                scrub: true,
-                // markers: true,
-                id: 'display'
-            }),
-            opacity: 1,
-        })
+            // mobile
+            "(max-width: 900px)": function () {
+                gsap.to(q('.image img'), {
+                    scrollTrigger: ({
+                        trigger: container,
+                        start: '-20%',
+                        end: '20%',
+                        scrub: true,
+                        // markers: true,
+                        id: 'display'
+                    }),
+                    opacity: 1,
+                })
+            },
+        });
+
     })
 
     return (
-        <StyledSixth ref={ref}>
+        <StyledDisplay ref={ref}>
             <div className="text">
                 <h4 className="sub-heading">DISPLAY</h4>
                 <h3 className='title'>Our brightest display <br /> for the brightest day</h3>
@@ -48,11 +68,11 @@ const Sixth = () => {
                 </div>
             </div>
 
-        </StyledSixth>
+        </StyledDisplay>
     );
 };
 
-const StyledSixth = styled.div`
+const StyledDisplay = styled.div`
     min-height: 100vh;
     background: black;
     color: white;
@@ -74,10 +94,7 @@ const StyledSixth = styled.div`
     }
 
     .sub-text {
-        width: 30%;
-        margin-left: 50%;
-        margin-right: 20%;
-        padding: 5% 0;
+        padding: 5% 20% 5% 50%;
     }
 
     .icon {
@@ -88,6 +105,24 @@ const StyledSixth = styled.div`
         }
     }
 
+    @media (max-width: 900px) {
+        padding: 5% 0;
+
+        .image {
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 70vh;
+                object-fit: cover;
+                transform: scale(1);
+                opacity: 0.2;
+            }
+        }
+        .sub-text {
+            padding: 15%;
+        }
+    }
 `
 
-export default Sixth;
+export default Display;

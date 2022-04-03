@@ -125,11 +125,6 @@ const StyledSecond = styled.div`
 
     .text-container {
         padding: 15% 20%;
-        /* position:absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%; */
 
         .text {
             border-bottom: 2px solid white;
@@ -139,6 +134,20 @@ const StyledSecond = styled.div`
             padding: 1.5rem 0;
             filter: brightness(1);
             opacity: 0.5;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .text-container {
+            padding: 20% 15%;
+
+            .text {
+                font-size: 1.5rem;
+                font-weight: bold;
+                padding: 1.5rem 0;
+                filter: brightness(1);
+                opacity: 0.5;
+            }
         }
     }
 

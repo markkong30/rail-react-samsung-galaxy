@@ -28,7 +28,7 @@ const Home = () => {
 
 
     return (
-        <motion.div variants={homeTransition} initial="hidden" animate="show" exit="exit">
+        <motion.div variants={homeTransition} initial="hidden" animate="show" exit="exit" style={{ overflow: 'hidden' }}>
             <Intro />
             <Table />
             <Slider />

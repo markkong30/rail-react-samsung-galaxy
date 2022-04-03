@@ -74,7 +74,7 @@ const StyledThird = styled.div`
     .text-container {
         width: 50%;
         height: 50vh;
-        z-index: 2;
+        z-index: 1;
 
         button {
             font-size: 1.1rem;
@@ -108,7 +108,36 @@ const StyledThird = styled.div`
         }
     }
 
-   
+   @media (max-width: 700px) {
+        padding: 10%;
+        margin-top: 105vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .text-container {
+            width: 100%;
+            /* text-align: center; */
+
+            .description {
+                width: 100%;
+                text-align: justify;
+            }
+        }
+
+        .video-container {
+            position: relative;
+            top: -30vh;
+            left: -10vw;
+            z-index: -1;
+
+            video {
+                width: 100vw;
+                height: 100vh;
+                transform: scale(3);
+            }
+        }
+   }
 
 `
 

@@ -100,6 +100,27 @@ const StyledVideo = styled.div`
         }
     }
 
+    @media (max-width: 900px) {
+        .video-container {
+            padding: 0;
+        }
+        .sub-heading {
+            padding: 0 10%;
+        }
+
+        .text-container {
+            padding: 0% 10%;
+            display: block;
+            text-align: justify;
+            font-size: 0.9rem;
+
+            .texts {
+                padding: 3rem 0;
+            }
+
+          
+        }
+    }
     
 `
 

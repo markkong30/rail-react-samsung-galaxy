@@ -79,3 +79,26 @@ button {
   color: rgba(200, 200, 200);
   margin-top: 1.5rem;
 }
+
+@media (max-width: 900px) {
+  .title {
+    font-size: 2rem !important;
+    /* line-height: 1; */
+  }
+
+  .description {
+    font-weight: lighter;
+    letter-spacing: 0.3px;
+  }
+
+  .sub {
+    font-size: 0.5rem;
+    color: rgba(200, 200, 200);
+    margin-top: 1.5rem;
+  }
+
+  button {
+    transform: scale(0.8);
+    transform-origin: left;
+  }
+}

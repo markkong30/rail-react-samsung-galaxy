@@ -25,9 +25,6 @@ const Carousel = ({ currentColor }) => {
                     </div>
                 </div>
             }
-
-
-
         </StyledCarousel>
     );
 };
@@ -63,6 +60,19 @@ const StyledCarousel = styled.div`
             display: block;
 
         }
+    }
+
+    @media (max-width: 900px) {
+        margin-top: 3rem;
+
+        .images {
+                
+            .img-right {
+                display: none;
+            }
+        }
+
+
     }
 `
 

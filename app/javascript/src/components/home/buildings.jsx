@@ -222,6 +222,42 @@ const StyledBuilding = styled.div`
             }
         }
      }
+
+     @media (max-width: 700px) {
+         /* padding: 10%; */
+        
+
+        .text-container-left {
+            width: 100%;
+        }
+
+        .text-container-right {
+            width: 100%;
+            margin-left: 0%;
+            margin-top: 15%;
+
+            .card {
+                padding: 3rem 0;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+
+                .powershare, .charger {
+                    transform: scale(1.5);
+                }
+
+                .texts {
+                    margin-left: 3rem;
+
+                }
+
+                .subtitle {
+                    margin-bottom: 1rem;
+                    font-size: 1.7rem;
+                }
+            }
+        }
+     }
 `
 
 const StyledDurability = styled.div`

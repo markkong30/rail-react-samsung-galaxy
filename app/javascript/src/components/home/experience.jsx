@@ -15,9 +15,10 @@ const Experience = () => {
     useEffect(() => {
         const container = ref.current;
         const lastCard = card.current.lastChild;
-
-        const coord = lastCard.getBoundingClientRect().x;
-        console.log(coord)
+        const middleWindow = window.innerWidth / 2;
+        const coord = lastCard.getBoundingClientRect();
+        // const coord = lastCard.getBoundingClientRect().x;
+        console.log(lastCard.getBoundingClientRect())
         const tl = gsap.timeline({
             scrollTrigger: ({
                 trigger: q('.card-container'),
@@ -29,8 +30,8 @@ const Experience = () => {
                 id: 'experience'
             }),
         })
-
-        tl.to('.card', { x: -coord / 2 })
+        const distance = (coord.x - middleWindow + coord.width / 2);
+        tl.to('.card', { x: -distance })
 
 
     })
@@ -85,7 +86,6 @@ const StyledExperience = styled.div`
     padding: 5% 15%;
     /* overflow: hidden; */
 
-
     .text-container {
         width: 60%;
         margin-bottom: 5rem;
@@ -112,9 +112,7 @@ const StyledExperience = styled.div`
 
 
             .text {
-
                 padding: 2rem 2rem 0 2rem;
-
 
                 .card-sub {
                     font-size: 0.8rem;
@@ -140,8 +138,27 @@ const StyledExperience = styled.div`
                     border-radius: 1rem;
 
                 }
-
             }
+        }
+    }
+
+    @media (max-width: 900px) {
+        .card {
+            width: 50vw !important;
+        }
+    }
+
+
+    @media (max-width: 700px) {
+        padding: 5% 10%;
+        margin-top: 3rem;
+        
+        .text-container {
+            width: 90%;
+            margin-bottom: 3rem;
+        }
+        .card {
+            width: 80vw !important;
         }
     }
 `

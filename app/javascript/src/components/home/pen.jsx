@@ -52,9 +52,7 @@ const StyledForth = styled.div`
     display: flex;
     align-items: center;
     z-index: 1;
-    width: 30%;
-    margin-left: 50%;
-    margin-right: 20%;
+    padding: 0 20% 0 50%;
     margin-top: 40vh;
 
     .text-container {
@@ -70,6 +68,10 @@ const StyledForth = styled.div`
         transform: translateY(300px);
     }
 
+    @media (max-width: 700px) {
+        margin: 0;
+        padding: 0 10%;
+    }
     
 `
 

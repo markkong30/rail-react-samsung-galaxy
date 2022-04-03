@@ -117,10 +117,39 @@ const StyledIntro = styled(motion.div)`
             overflow: visible;
 
         }
-
-        
     }
 
+    @media (max-width: 700px) {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+
+        .intro-text {
+            padding: 8% 10% 0 10%;
+
+        }
+
+        .btn-default {
+            transform: scale(0.7);
+            padding: 8% 10% 0 10%;
+
+        }
+
+        .intro-img {
+            margin-top: 2rem;
+
+            img {
+                height: 70vh;
+                width: 100%;
+                object-fit: cover;
+                object-position: top;
+
+            }
+        }
+    }
    
 `
 

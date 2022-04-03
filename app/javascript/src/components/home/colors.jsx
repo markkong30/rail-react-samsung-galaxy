@@ -31,7 +31,7 @@ const Colors = () => {
             <div className="text-container">
                 <div className="text-left">
                     <h4 className="sub-heading">COLORS</h4>
-                    <h1 className='title'>Leave your <br /><span>mark with </span><br /><span>color</span></h1>
+                    <h1 className='title'>Leave your <br /><span> mark with </span><br /><span> color</span></h1>
                 </div>
                 <div className="text-right">
                     <p className="description">
@@ -84,6 +84,39 @@ const StyledColors = styled.div`
             margin: 2rem 0;
         }
 
+    }
+
+    @media (max-width: 700px) {
+        margin-top: 5rem;
+        padding: 10%;
+        padding-bottom: 0;
+
+        .text-container {
+            flex-direction: column;
+            justify-content: flex-start;
+            
+        }
+
+        .text-left {
+            width: 100%;
+            padding-bottom: 0;
+            .title {
+                display: flex;
+                flex-wrap: wrap;
+                flex: 1;
+
+            }
+
+        }
+
+        .text-right {
+            margin-top: 0;
+
+            .btn-default {
+                margin: 2rem 0;
+            }
+
+        }
     }
 `
 

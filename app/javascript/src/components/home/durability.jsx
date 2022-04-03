@@ -125,6 +125,12 @@ const StyledDurability = styled.div`
         .description {
             color: rgb(220, 220, 220);
         }
+
+        @media (max-width: 700px) {
+            .title {
+                font-size: 1.5rem !important;
+            }
+        }
         
     }
 
@@ -185,15 +191,31 @@ const StyledDurability = styled.div`
         }
 
         @media (min-width: 1800px) {
-        .text-container {
-            flex-basis: 40%;
-            
+            .text-container {
+                flex-basis: 40%;
+                
+            }
+
+            .images-container {
+                flex-basis: 30%;
+            }
         }
 
-        .images-container {
-            flex-basis: 30%;
+        @media (max-width: 900px) {
+            display: block;
+
+            .text-container {
+                width: 100%;
+                margin-top: 5rem;
+            }
         }
-    }
+
+        @media (max-width: 500px) {
+            margin-top: 0;
+
+            transform: scale(0.8);
+
+        }
     }
     
 

@@ -95,6 +95,22 @@ const StyledPrivacy = styled.div`
         flex-basis: 50%;
     }
 
+    @media (max-width: 700px) {
+        display: block;
+        padding: 0;
+
+        .image-container {
+            margin-left: -150%;
+            transform: scale(0.8);
+            background-size: contain;
+            
+        }
+
+        .text-container {
+            width: 100%;
+            padding: 5% 10%;
+        }
+    }
 `
 
 export default Privacy;

@@ -91,6 +91,10 @@ const StyledLinks = styled.div`
     .about {
         padding-top: 2rem;
     }
+
+    @media (max-width: 700px) {
+        display: none;
+    }
 `
 
 export default Links;
