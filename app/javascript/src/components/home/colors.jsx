@@ -91,26 +91,34 @@ const StyledColors = styled.div`
         padding: 10%;
         padding-bottom: 0;
 
+
         .text-container {
             flex-direction: column;
             justify-content: flex-start;
+            flex-wrap: wrap;
             
         }
 
         .text-left {
             width: 100%;
             padding-bottom: 0;
+            flex-basis: 100%;
             .title {
                 display: flex;
                 flex-wrap: wrap;
                 flex: 1;
-
+                
             }
 
         }
 
         .text-right {
             margin-top: 0;
+
+            .description {
+                flex-wrap: wrap;
+                text-align: start;
+            }
 
             .btn-default {
                 margin: 2rem 0;

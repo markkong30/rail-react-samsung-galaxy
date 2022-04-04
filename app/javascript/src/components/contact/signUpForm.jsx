@@ -391,16 +391,20 @@ const StyledSignUpForm = styled.div`
     @media (max-width: 650px) {
         .details {
             /* text-align: center; */
-
+            margin-left: 10%;
             .form {
                 grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
 
                 .input-container {
                     /* justify-self: center; */
                 }
-
-                
             }
+        }
+    }
+
+    @media (max-width: 450px) {
+        .details {
+            margin-left: 20%;
         }
     }
 
