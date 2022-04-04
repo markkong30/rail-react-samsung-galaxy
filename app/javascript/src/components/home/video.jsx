@@ -30,7 +30,7 @@ const Video = () => {
     return (
         <StyledVideo>
             <div className="video-container" ref={ref} >
-                <video src={nightVideo} muted preload='auto' ref={video}></video>
+                <video src={'https://rails-react-samsung.s3.amazonaws.com/night-video.mp4'} muted preload='auto' ref={video}></video>
             </div>
             <h4 className="sub-heading">VIDEO AT NIGHT</h4>
             <div className="text-container">

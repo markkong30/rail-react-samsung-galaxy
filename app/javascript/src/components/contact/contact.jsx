@@ -68,6 +68,7 @@ const StyledContact = styled(motion.div)`
     padding: 0 10%;
     position: relative;
     z-index: 100;
+    overflow-x: hidden;
 
     .member-check {
         margin: 3% 0;
