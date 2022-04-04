@@ -97,8 +97,8 @@ button {
     margin-top: 1.5rem;
   }
 
-  button {
+  /* button {
     transform: scale(0.8);
     transform-origin: left;
-  }
+  } */
 }

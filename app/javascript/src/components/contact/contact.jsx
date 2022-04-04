@@ -70,9 +70,8 @@ const StyledContact = styled(motion.div)`
     z-index: 100;
 
     .member-check {
-        margin: 2% 20%;
+        margin: 3% 0;
         padding: 1rem 2rem;
-        width: max-content;
         background: #F7F7F7;
         display: flex;
         justify-content: space-between;

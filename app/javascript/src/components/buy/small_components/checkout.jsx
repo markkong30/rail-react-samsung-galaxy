@@ -30,6 +30,7 @@ const StyledChekcout = styled.div`
     background: #F7F7F7;
     border-radius: 1rem;
     margin-top: 3rem;
+   
 
     h3 {
         padding-bottom: 1.5rem;
@@ -53,6 +54,7 @@ const StyledChekcout = styled.div`
             margin-top: 0.3rem;
         }
     }
+    
 
     .btn-checkout {
         margin-top: 2rem;
@@ -61,7 +63,7 @@ const StyledChekcout = styled.div`
         color: white;
         background: #0069E9;
         border-radius: 1rem;
-
+        transform-origin: center !important;
     }
 
     .btn-out-of-stock {
@@ -72,6 +74,18 @@ const StyledChekcout = styled.div`
         background: #BDBDBD;
         color: white;
         cursor: not-allowed;
+        transform-origin: center !important;
+    }
+
+    @media (max-width: 600px) {
+        transform: scale(0.7);
+
+    }
+
+    @media (max-width: 450px) {
+        transform: scale(0.7);
+        transform-origin: left;
+
     }
 `
 

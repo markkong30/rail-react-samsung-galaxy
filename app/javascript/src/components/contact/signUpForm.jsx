@@ -383,6 +383,26 @@ const StyledSignUpForm = styled.div`
         }
     }
 
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    @media (max-width: 650px) {
+        .details {
+            /* text-align: center; */
+
+            .form {
+                grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+
+                .input-container {
+                    /* justify-self: center; */
+                }
+
+                
+            }
+        }
+    }
 
 `
 

@@ -86,6 +86,14 @@ const StyledChekcout = styled.div`
         color: white;
         cursor: not-allowed;
     }
+
+    @media (max-width: 650px) {
+        transform: scale(0.8);
+    }
+
+    @media (max-width: 450px) {
+        transform: scale(0.7);
+    }
 `
 
 export default SubmitCheckout;

@@ -50,7 +50,9 @@ const StyledProgress = styled.div`
             padding: 1rem;         
         }
 
-        
+        @media (max-width: 700px) {
+         transform: scale(0.8);
+        }
     }
 
 `
@@ -85,6 +87,8 @@ const StyledLine = styled.div`
      opacity: 0.6;
      width: 20vw;
      background: ${props => props.color};
+
+    
 `
 
 export default Progress;

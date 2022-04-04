@@ -278,6 +278,17 @@ const StyledSignUp = styled.div`
         
     }
 
+    @media (max-width: 550px) {
+        .details {
+            transform: scale(0.8);
+        }
+    }
+
+    @media (max-width: 450px) {
+        .details {
+            transform: scale(0.7);
+        }
+    }
 
 `
 

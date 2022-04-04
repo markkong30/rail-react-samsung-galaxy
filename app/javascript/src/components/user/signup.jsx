@@ -277,7 +277,7 @@ const StyledSignUp = styled.div`
         .form {
             display: grid;
             /* flex-direction: column; */
-            grid-template-columns: repeat(2, 200px);
+            grid-template-columns: repeat(1, 200px);
             row-gap: 2rem;
             column-gap: 8rem;
             /* width: 50%; */
@@ -364,6 +364,35 @@ const StyledSignUp = styled.div`
             }
         }
         
+    }
+
+    
+
+    @media (max-width: 750px) {
+        .details {
+            text-align: center;
+            transform: scale(0.8);
+        }
+    }
+
+    @media (max-width: 650px) {
+        .details {
+            text-align: center;
+            /* transform: scale(0.8); */
+
+            .form {
+                grid-template-columns: 1fr;
+                
+                .input-container {
+                    /* justify-self: center; */
+                }
+
+                .submit {
+                    grid-row-start: initial;
+                    grid-column: initial;
+                }
+            }
+        }
     }
 
 `

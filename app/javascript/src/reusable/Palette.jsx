@@ -25,6 +25,22 @@ const StyledPalette = styled.div`
     width: 50%;
     align-items: flex-start;
     text-align: center;
+
+    @media (max-width: 1250px) {
+        width: 100%;
+        justify-content: center;
+    }
+    @media (max-width: 450px) {
+        transform: scale(0.8);
+        transform-origin: left; 
+        justify-content: flex-start;
+        margin-left: 4rem;
+    }
+
+    @media (max-width: 400px) {
+        margin-left: 2rem;
+    }
+
 `
 
 const StyledColor = styled.div`
@@ -57,6 +73,13 @@ const StyledColor = styled.div`
         }
     }
 
+    @media (max-width: 1250px) {
+        flex-basis: 15%;
+    }
+    @media (max-width: 600px) {
+        flex-basis: 10%;
+
+    }
     
 `
 

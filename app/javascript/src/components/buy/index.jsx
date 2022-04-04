@@ -76,7 +76,6 @@ const Buy = () => {
                                         <span>{displayStock()}</span>
                                     </p>
                                 }
-
                             </div>
                         ))}
                     </div>
@@ -85,10 +84,7 @@ const Buy = () => {
                     <Color currentColor={currentColor} setCurrentColor={setCurrentColor} >
                         {currentStock && <Checkout currentStock={currentStock} />}
                     </Color>
-
                 </div>
-
-
 
             </div>
         </StyledBuy>
@@ -162,7 +158,6 @@ const StyledBuy = styled(motion.div)`
 
                 }
             }
-
             
         }
 
@@ -181,6 +176,32 @@ const StyledBuy = styled(motion.div)`
         }
     }
    
+    @media (max-width: 600px) {
+        .buy-container {
+            padding: 5%;
+
+            .buy-title {
+                flex-basis: 25%;
+            }
+
+            .cards {
+                flex-basis: 75%;
+
+                .card {
+                    padding: 1rem 7rem 1rem 1rem ;
+                }
+                
+            }
+
+            .storage {
+                .card {
+                    padding: 1rem 8.8rem 1rem 1rem ; 
+
+                }
+            }
+        }
+
+    }   
 
 `
 
