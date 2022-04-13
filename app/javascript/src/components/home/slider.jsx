@@ -57,7 +57,7 @@ const Slider = () => {
             </div>
             <div className="video-container">
 
-                <video src={'https://rails-react-samsung.s3.amazonaws.com/turn-phone.mp4'} muted></video>
+                <video src={video} muted playsInline></video>
             </div>
 
         </StyledThird>
