@@ -57,7 +57,7 @@ const Slider = () => {
             </div>
             <div className="video-container">
 
-                <video src={video} muted playsInline></video>
+                <video src={video} playsInline></video>
             </div>
 
         </StyledThird>
@@ -134,7 +134,7 @@ const StyledThird = styled.div`
             video {
                 width: 100vw;
                 height: 100vh;
-                /* transform: scale(3); */
+                transform: scale(3);
             }
         }
    }
