@@ -126,6 +126,15 @@ const StyledColors = styled.div`
 
         }
     }
+
+    @media (max-width: 450px) {
+        .text-right {
+            .description {
+                transform: scale(0.85);
+                margin-left: -8%;
+            }
+        }
+    }
 `
 
 

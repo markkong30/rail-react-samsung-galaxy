@@ -108,6 +108,12 @@ const StyledZoom = styled.div`
         flex-direction: column;
         padding: 0 25%;
         gap: 3rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
 `

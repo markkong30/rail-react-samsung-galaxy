@@ -134,7 +134,7 @@ const StyledThird = styled.div`
             video {
                 width: 100vw;
                 height: 100vh;
-                transform: scale(3);
+                /* transform: scale(3); */
             }
         }
    }
