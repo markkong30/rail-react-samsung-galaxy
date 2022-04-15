@@ -108,6 +108,18 @@ const StyledSuccess = styled(motion.div)`
         h2 {
             margin-top: 1rem;
         }
+
+        @media (max-width: 900px) {
+            img {
+                width: 50px;
+                height: 50px;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+                
+        }
     }
 
     .summaries {
@@ -144,6 +156,13 @@ const StyledSuccess = styled(motion.div)`
                         font-weight: normal;
                     }
 
+                }
+
+                @media (max-width: 900px) {
+                    p, span {
+                        font-size: 0.9rem;
+                    }
+                        
                 }
             }
         }

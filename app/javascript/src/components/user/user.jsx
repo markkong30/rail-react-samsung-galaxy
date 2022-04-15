@@ -10,7 +10,7 @@ const User = () => {
     const { status } = useParams();
 
     return (
-        <StyledUser variants={pageTransition} initial="hidden" animate="show" exit="exit">
+        <StyledUser variants={pageTransition} initial="hidden" animate="show" exit="exit" id='user'>
             {status == 'signup' && <Signup />}
             {status == 'login' && <Login />}
 
@@ -19,6 +19,7 @@ const User = () => {
 };
 
 const StyledUser = styled(motion.div)`
+    position: relative;
 `
 
 export default User;

@@ -7,6 +7,7 @@ const Notification = ({ notificationProps, username }) => {
     const { status, component } = notificationProps;
 
     useEffect(() => {
+        document.querySelector('#user').style.zIndex = 10
         notify(status, component);
     }, [])
 
@@ -65,6 +66,9 @@ const Notification = ({ notificationProps, username }) => {
 };
 
 const StyledNotification = styled.div`
+    position: relative;
+    margin-top: 20%;
+
     .Toastify__toast-body {
         white-space: pre-line;
     }
