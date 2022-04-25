@@ -2,7 +2,7 @@
 
 This project aims to create a minimal clone of Samsung Galaxy S22 Ultra landing page, and a checkout session for purchase. The original website is on https://www.samsung.com/hk_en/smartphones/galaxy-s22-ultra/.
 
-The website is responsive though, OPTIMIZED for medium to large screens where most of the animations and layouts were NOT designed for mobiles or small screens.
+The website is fully responsive though, OPTIMIZED for medium to large screens where most of the animations and layouts were not designed for mobiles or small screens.
 
 Objective: Extensive showcase of fancy animations to maximize user's experience, in turn increasing their willingness to purchase the newest Galaxy S22 Ultra.  
 
