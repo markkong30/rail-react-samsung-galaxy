@@ -1,4 +1,6 @@
-# README
+# Samusng Galaxy S22 Ultra Clone
+
+Live Server: https://rail-react-samsung-galaxy.herokuapp.com/
 
 This project aims to create a minimal clone of Samsung Galaxy S22 Ultra landing page, and a checkout session for purchase. The original website is on https://www.samsung.com/hk_en/smartphones/galaxy-s22-ultra/.
 
